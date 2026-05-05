@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-docs:
+    name: Lint Markdown
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Markdown link check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: yes
+          use-verbose-mode: no
+          check-modified-files-only: no
+          config-file: .github/mlc.json
+          base-branch: main
+          folder-path: docs
+
+  lint-python:
+    name: Lint Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install lint tools
+        run: pip install ruff black
+      - name: Black check
+        run: black --check firmware/tools/
+      - name: Ruff check
+        run: ruff check firmware/tools/
+
+  secrets-scan:
+    name: Secrets scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-firmware:
+    name: Build firmware (nRF Connect SDK)
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: project-nullwear
+      - name: Initialise west workspace
+        run: |
+          mkdir -p ncs && cd ncs
+          west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5-branch
+          west update --narrow -o=--depth=1
+          west zephyr-export
+      - name: Build NULLWEAR/P
+        run: |
+          cd ncs
+          west build \
+            -b nrf5340dk_nrf5340_cpuapp \
+            -p always \
+            ../project-nullwear/firmware/nullwear-p
+      - name: Upload artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nullwear-p-firmware-${{ github.sha }}
+          path: ncs/build/zephyr/merged.hex
+          retention-days: 14
+
+  python-tests:
+    name: Python tool smoke tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install bleak
+      - name: Validate ATP schema
+        run: |
+          python -c "import json; json.load(open('firmware/tools/atp/atp_schema.json'))"
+      - name: Reference receiver --help
+        run: python firmware/tools/reference-receiver/ref_receiver.py --help
+      - name: ATP harness --help
+        run: python firmware/tools/atp/run_atp.py --help

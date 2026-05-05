@@ -1,0 +1,91 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-firmware:
+    name: Build firmware for release
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: project-nullwear
+      - name: Initialise NCS workspace
+        run: |
+          mkdir -p ncs && cd ncs
+          west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.5-branch
+          west update --narrow -o=--depth=1
+          west zephyr-export
+      - name: Build NULLWEAR/P
+        run: |
+          cd ncs
+          west build \
+            -b nrf5340dk_nrf5340_cpuapp \
+            -p always \
+            ../project-nullwear/firmware/nullwear-p
+      - name: Compute SHA256
+        run: |
+          cd ncs/build/zephyr
+          sha256sum merged.hex > merged.hex.sha256
+          cat merged.hex.sha256
+      - name: Stage release artefacts
+        run: |
+          mkdir -p release
+          cp ncs/build/zephyr/merged.hex release/nullwear-p-${{ github.ref_name }}.hex
+          cp ncs/build/zephyr/merged.hex.sha256 release/nullwear-p-${{ github.ref_name }}.hex.sha256
+      - name: Upload artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nullwear-p-release-${{ github.ref_name }}
+          path: release/
+
+  publish-release:
+    name: Publish GitHub release
+    needs: build-firmware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: nullwear-p-release-${{ github.ref_name }}
+          path: release/
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          body: |
+            # Project NULLWEAR ${{ github.ref_name }}
+
+            **THIS IS A REFERENCE-IMPLEMENTATION RELEASE.**
+
+            Before flashing onto any unit that will be carried by a serving officer:
+
+            1. Verify the SHA-256 of `nullwear-p-${{ github.ref_name }}.hex` matches the value in the
+               accompanying `.sha256` file.
+            2. Re-sign the firmware with your agency's MCUboot private key — see `keys/README.md`.
+               The unsigned image in this release is intended for lab use only and will not boot
+               on a unit configured to require a signed image.
+            3. Run the Acceptance Test Procedure (`docs/12-acceptance-test-procedure.md`) on every unit.
+            4. Run the Field Test Protocol (`docs/10-field-testing-protocol.md`) on every unit.
+
+            See `docs/00-INDEX.md` for the full documentation set, and `BEFORE_PUBLISH.md` for the
+            placeholder-replacement checklist if this is your first release from a fork.
+          files: |
+            release/nullwear-p-${{ github.ref_name }}.hex
+            release/nullwear-p-${{ github.ref_name }}.hex.sha256
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-rc') || contains(github.ref_name, '-beta') }}
