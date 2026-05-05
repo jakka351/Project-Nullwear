@@ -1,0 +1,30 @@
+ref_id,function,manufacturer,part_number,description,qty_per_unit,supplier_primary,supplier_secondary,indicative_unit_cost_aud_at_50k,notes
+U1,Dual-core SoC + 2.4 GHz radio,Nordic Semiconductor,nRF5340,QFN-94 7x7 mm; dual ARM Cortex-M33; integrated radio,1,Mouser,Digi-Key,8.40,Reference design centre. Second source nRF52840 with code-level adaptations.
+U2,RF front-end module,Skyworks,SKY66112-11,LNA + T/R switch for 2.4 GHz BLE,1,Mouser,Digi-Key,2.10,Optional but improves Phase-1 sensitivity. Can be omitted with TXPOWER tradeoff.
+U3,LiPo charge controller,Microchip,MCP73831T-2ACI,Single-cell 500 mA CC/CV charger,1,Mouser,Digi-Key,0.70,Standard part. Many compatible alternatives (TP4054 etc).
+U4,LiPo fuel gauge,Maxim Integrated,MAX17048G+T10,I2C state-of-charge gauge,1,Mouser,Digi-Key,1.30,Provides accurate SoC reporting to firmware. Alternative: BQ27441.
+U5,3V3 LDO regulator,Texas Instruments,TLV75533PDBVR,100 mA low-Iq LDO,1,Mouser,Digi-Key,0.45,
+U6,Load switch,Texas Instruments,TPS22918DBVR,Low-Rdson power switch,1,Mouser,Digi-Key,0.55,
+D1,USB-C ESD/TVS,STMicroelectronics,USBLC6-2SC6Y,5-line ESD protection,1,Mouser,Digi-Key,0.40,Critical for USB port reliability.
+Q1,Reverse-polarity protection,Diodes Incorporated,DMP3098L-7,P-MOSFET,1,Mouser,Digi-Key,0.25,
+Y1,Main crystal,Abracon,ABM3B-32.000MHZ-D2Y-T,32 MHz +-20 ppm,1,Mouser,Digi-Key,0.55,Required for nRF5340 RF stability.
+Y2,RTC crystal,Abracon,ABS07-32.768KHZ-T,32.768 kHz watch crystal,1,Mouser,Digi-Key,0.40,
+ANT1,2.4 GHz chip antenna,Johanson Technology,2450AT43A100,Chip antenna with required keepout,1,Mouser,Digi-Key,0.95,Footprint and keepout per datasheet — strict.
+BAT1,LiPo cell,PowerStream,PGEB0042530,200 mAh prismatic LiPo with PCM,1,PowerStream,Shenzhen Lipower (LP402530 equivalent),3.80,Cell selection per ATP §3 thermal/electrical tests.
+J1,USB-C receptacle,Amphenol,12401610E4#2A,Right-angle SMD USB-C connector,1,Mouser,Digi-Key,0.85,Use sealed/gasketed variant for IP67 compliance.
+LED1,RGB indicator LED,Cree,CLV1A-FKB,0805 RGB common-anode,1,Mouser,Digi-Key,0.30,
+SW1,Tactile switch,C&K,KMR2,Sealed momentary switch IP67,1,Mouser,Digi-Key,0.35,Must be sealed variant for ingress protection.
+,Passives (MLCC + R + L bundle),Various,—,Capacitors / resistors / inductors per reference layout,~35,Mouser,Digi-Key,0.04,Aggregate price per typical SMT BoM at this complexity.
+PCB,4-layer FR-4 PCB,—,Custom,1.2 mm; ENIG; controlled impedance per Engineering Spec §24,1,Local PCB house,Asian PCB house,2.40,Layout files provided post-CM-engagement.
+ENC,Enclosure,—,Custom,Two-piece PC-ABS injection-moulded; ultrasonically welded,1,Custom-tooled,—,3.80,Tooling NRE one-off ~AUD 30k.
+CLIP,Belt clip,—,Custom,Stainless 304,1,Custom,—,1.20,Standard police duty-belt geometry.
+LP,Light pipe,—,Custom,Acrylic rod 3 mm dia x 12 mm,1,Custom,—,0.30,Conducts LED light to enclosure surface.
+POT,Potting compound,Wevolt,PU-7000,Polyurethane two-part,per fill,Wevolt,Local resin supplier,1.10,UL94 V-0 rated.
+GASK,USB-C gasket,—,Generic,EPDM strip,1,Generic,—,0.20,
+INSERT,Brass mount inserts,—,Generic,M3 heat-staked,2,Generic,—,0.20,For belt-clip mounting.
+,Components subtotal (per unit at 50k volume),,,,,,,31.95,
+,Assembly labour (SMT + final + test),,,,,,,8.50,
+,ATP test + programming + serialisation,,,,,,,3.00,
+,Packaging (blister + carton),,,,,,,1.20,
+,Margin / OH / contingency (~25%),,,,,,,11.20,
+,All-in target unit cost (50k volume),,,,,,,55.85,
