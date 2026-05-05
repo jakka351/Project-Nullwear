@@ -1,0 +1,42 @@
+version: 2
+
+updates:
+  # GitHub Actions — keep CI workflow actions current with patches
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ci"
+
+  # Docker base image — keep the Zephyr CI container patched
+  - package-ecosystem: "docker"
+    directory: "/docker"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "build"
+
+  # Python tooling deps
+  - package-ecosystem: "pip"
+    directory: "/firmware/tools/reference-receiver"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "tooling"
+
+  - package-ecosystem: "pip"
+    directory: "/firmware/tools/atp"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "tooling"

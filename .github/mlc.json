@@ -1,0 +1,16 @@
+{
+  "_comment": "Markdown link checker config. Replace REPLACE-ME-OWNER with the actual GitHub owner once the repository is published.",
+  "ignorePatterns": [
+    {
+      "pattern": "^https://github.com/REPLACE-ME-OWNER/Project-Nullwear"
+    },
+    {
+      "pattern": "^https://standards-oui.ieee.org"
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206, 429]
+}

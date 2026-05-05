@@ -1,0 +1,41 @@
+# Project NULLWEAR — code ownership
+#
+# This file maps subtrees of the repository to the people or teams who
+# review changes to them. GitHub uses this to auto-request reviewers
+# on every pull request.
+#
+# Format reference: https://docs.github.com/en/repositories/managing-your-repositories-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner — the project maintainer reviews everything that
+# doesn't have a more specific owner below.
+*                                       @Jakka351
+
+# --- Safety-critical: radio jammer ---
+# Any change here changes whether the device works. Maintainer review
+# is mandatory; ideally a second engineer reviewer too.
+firmware/nullwear-p/network_core/       @Jakka351
+firmware/nullwear-p/src/main.c          @Jakka351
+
+# --- Build / signing ---
+firmware/nullwear-p/CMakeLists.txt      @Jakka351
+firmware/nullwear-p/prj.conf            @Jakka351
+firmware/nullwear-p/network_core/prj.conf @Jakka351
+keys/                                   @Jakka351
+
+# --- Documentation ---
+# Looser review acceptable for prose; still maintainer-default.
+docs/                                   @Jakka351
+README.md                               @Jakka351
+
+# --- Legal / regulatory documents ---
+# Should not change without legal review.
+docs/15-legal-and-regulatory.md         @Jakka351
+docs/16-secrets-and-publishing-policy.md @Jakka351
+SECURITY.md                             @Jakka351
+CONTACT.md                              @Jakka351
+
+# --- CI / governance ---
+.github/                                @Jakka351
+.pre-commit-config.yaml                 @Jakka351
+docker/                                 @Jakka351
+Makefile                                @Jakka351
