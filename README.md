@@ -79,7 +79,7 @@ Every Axon Enterprise BLE-emitting device — body-worn cameras, smart holsters,
 
 ## The fix in one paragraph
 
-NULLWEAR is a coin-sized, officer-issued radio device that performs **selective per-packet annihilation** of Axon BLE broadcasts. It listens continuously on the three BLE advertising channels (37, 38 and 39). When it detects a packet whose MAC begins with `00:25:DF`, it immediately emits a precisely-timed colliding pulse on the same channel, in the air, during the packet's CRC trailer. Every BLE receiver in radio range — including the attacker's scanner mesh — fails the CRC check and silently discards the packet. The Axon device's broadcast is destroyed mid-flight before any external scanner can receive a clean copy. To the attacker, an officer wearing NULLWEAR is **invisible**.
+NULLWEAR is a credit card sized, officer-issued radio device that performs **selective per-packet annihilation** of Axon BLE broadcasts. It listens continuously on the three BLE advertising channels (37, 38 and 39). When it detects a packet whose MAC begins with `00:25:DF`, it immediately emits a precisely-timed colliding pulse on the same channel, in the air, during the packet's CRC trailer. Every BLE receiver in radio range — including the attacker's scanner mesh — fails the CRC check and silently discards the packet. The Axon device's broadcast is destroyed mid-flight before any external scanner can receive a clean copy. To the attacker, an officer wearing NULLWEAR is **invisible**.
 
 ## Why this works
 
