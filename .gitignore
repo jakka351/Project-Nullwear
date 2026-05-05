@@ -1,0 +1,60 @@
+# Build artifacts
+build/
+build_*/
+out/
+*.elf
+*.hex
+*.bin
+*.zip
+*.signed.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Zephyr / NCS
+.west/
+zephyr/
+modules/
+nrf/
+nrfxlib/
+mcuboot/
+.cache/
+
+# Test results (large; not version-controlled by default — copy individual reports manually if needed)
+test/results/
+
+# CAD intermediate files
+*.bak
+*.kicad_pcb-bak
+*.kicad_sch-bak
+~*.SLDPRT
+~*.SLDASM
+
+# Secrets — never commit
+*.pem
+!*-public.pem
+!example*.pem
+keys/
+*.key
+*.priv
+secrets.env
+
+# OS / archive cruft
+.Trashes
+.AppleDouble
+desktop.ini
