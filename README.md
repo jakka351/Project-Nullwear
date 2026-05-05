@@ -3,7 +3,7 @@
 </p>
 
 
-**A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
+**Project Nullwear: A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
 
 <p align="center">
   <img src="docs/img/system-architecture.svg" alt="System architecture diagram" width="900"/>
