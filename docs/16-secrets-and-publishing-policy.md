@@ -213,22 +213,7 @@ For asset-register exposure: the affected officer cohort needs a fresh device-se
 
 ---
 
-## 8. The summary the user asked for
 
-To answer the question "what is the best strategy for dealing with secrets":
-
-1. **Publish everything except the keys and the credentials and the asset register.** The design itself is no use to an attacker — it's a defender's asset.
-2. **Generate the firmware-signing keypair in an HSM**, never let the private key leave it, use multi-person ceremony.
-3. **Backup with Shamir's Secret Sharing** (3-of-5 threshold across senior custodians).
-4. **Commit only the public key** to the repository so anyone can verify a built binary is from your agency.
-5. **Use `.gitignore` plus a `pre-commit` secrets scanner** to enforce this mechanically.
-6. **Per-agency keys, not one global key** — if Agency A's key is compromised, Agency B's units are not affected.
-7. **Rotate keys per major release** so that even unknown long-term compromise has a bounded blast radius.
-8. **Treat the agency asset register as PROTECTED** (or equivalent) per your information-classification framework — it is the operational link between hardware and human.
-
-If you do these things, the public repository is a strict improvement to the world. It gives every agency the answer; it gives no attacker any lift. That is the strategic posture this project requires.
-
----
 
 Cross-references:
 
