@@ -14,7 +14,7 @@
 #
 # Output appears in firmware/nullwear-p/build/zephyr/merged.hex on the host.
 
-FROM ghcr.io/zephyrproject-rtos/ci:v0.27.4
+FROM ghcr.io/zephyrproject-rtos/ci:v0.29.2
 
 # Pinned NCS revision. Bump when project moves to a newer NCS.
 ARG NCS_REVISION=v2.5-branch
