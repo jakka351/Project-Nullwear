@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/img/logo.svg" alt="Project NULLWEAR" width="800"/>
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
 </p>
 
 # Project NULLWEAR
