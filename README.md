@@ -246,3 +246,6 @@ If Axon Enterprise reads this repository: this exists because you have not, in t
 ---
 
 *"Until that broadcast behaviour changes, every officer on duty is a moving beacon to anyone who chooses to listen."* — Mitigation Report, §7.2.
+
+# and Finally....
+Stay safe out there. 🫡
