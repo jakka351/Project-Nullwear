@@ -1,0 +1,78 @@
+/*
+ * Project NULLWEAR — App-core devicetree overlay for nRF5340 DK
+ *
+ * Pin assignments shown here are for the Nordic nRF5340 DK development
+ * board, used during pilot development. The production nullwear_p
+ * board has its own board definition in boards/arm/nullwear_p/.
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+        zephyr,uart-mcumgr = &cdc_acm_uart0;
+    };
+
+    /* RGB LED (3 PWM channels) */
+    pwmleds {
+        compatible = "pwm-leds";
+        led_r: led_red {
+            pwms = <&pwm0 0 1000000 PWM_POLARITY_NORMAL>;
+        };
+        led_g: led_green {
+            pwms = <&pwm0 1 1000000 PWM_POLARITY_NORMAL>;
+        };
+        led_b: led_blue {
+            pwms = <&pwm0 2 1000000 PWM_POLARITY_NORMAL>;
+        };
+    };
+
+    /* Tact button */
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio0 23 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "User button";
+        };
+    };
+
+    /* Charger STAT input from MCP73831 */
+    chgstat {
+        compatible = "gpio-keys";
+        charger_stat: chg_stat {
+            gpios = <&gpio0 24 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Charger STAT";
+        };
+    };
+};
+
+&i2c0 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    /* MAX17048 fuel gauge */
+    max17048@36 {
+        compatible = "maxim,max17048";
+        reg = <0x36>;
+    };
+};
+
+&pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-1 = <&pwm0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+zephyr_udc0: &usbd {
+    compatible = "nordic,nrf-usbd";
+    status = "okay";
+
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
