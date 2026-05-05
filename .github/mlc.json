@@ -2,7 +2,7 @@
   "_comment": "Markdown link checker config. Replace REPLACE-ME-OWNER with the actual GitHub owner once the repository is published.",
   "ignorePatterns": [
     {
-      "pattern": "^https://github.com/REPLACE-ME-OWNER/Project-Nullwear"
+      "pattern": "^https://github.com/jakka351/Project-Nullwear"
     },
     {
       "pattern": "^https://standards-oui.ieee.org"
