@@ -30,74 +30,16 @@ Author's PGP public key is published at:
 - This repository: [`keys/author-public.asc`](keys/author-public.asc) — fingerprint must be verified out-of-band before use.
 - Public keyservers: search for the fingerprint below.
 
-**Public key:**
+**Public key fingerprint (placeholder — to be replaced with the author's real fingerprint at first publication):**
 
 ```
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-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
-hEPgGUQTZffYRE0=
-=DmKk
------END PGP PUBLIC KEY BLOCK-----
-
+TBD  TBD  TBD  TBD  TBD  TBD  TBD  TBD  TBD  TBD
 ```
 
-**Email address:**
+**Email address (placeholder — to be replaced):**
 
 ```
-contact@testerpresent.com.au
+nullwear-secure@<author-domain>
 ```
 
 The fingerprint must be verified through at least one trusted out-of-band channel before any sensitive material is exchanged. Acceptable verification channels:
