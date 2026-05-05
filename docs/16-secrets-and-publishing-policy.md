@@ -232,7 +232,9 @@ If you do these things, the public repository is a strict improvement to the wor
 
 Cross-references:
 
+- [`CONTACT.md`](../CONTACT.md) — secure-contact channel for cryptographic-material handoff.
 - [`SECURITY.md`](../SECURITY.md) — vulnerability reporting policy.
+- [`keys/README.md`](../keys/README.md) — public-key material in the repo.
 - [`docs/14-security-considerations.md`](14-security-considerations.md) — the threat model NULLWEAR addresses.
 - [`docs/15-legal-and-regulatory.md`](15-legal-and-regulatory.md) — regulatory pathway for deployment.
 - [`docs/09-operations-manual.md`](09-operations-manual.md) §11 — operational security posture for fielded units.
