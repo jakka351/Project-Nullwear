@@ -219,7 +219,6 @@ For security-relevant matters, see [`SECURITY.md`](SECURITY.md). For cryptograph
 
 | Concern | Location |
 |---|---|
-| **Pre-publish checklist (do this first if forking!)** | [`BEFORE_PUBLISH.md`](BEFORE_PUBLISH.md) |
 | Vulnerability disclosure | [`SECURITY.md`](SECURITY.md) |
 | Secure-contact channel for keys / sensitive matters | [`CONTACT.md`](CONTACT.md) |
 | What can be public, what cannot | [`docs/16-secrets-and-publishing-policy.md`](docs/16-secrets-and-publishing-policy.md) |
@@ -241,7 +240,7 @@ For security-relevant matters, see [`SECURITY.md`](SECURITY.md). For cryptograph
 
 ## A note on the supplier
 
-If Axon Enterprise reads this repository: this exists because you have not, in three years since first formal notification, shipped a default-RPA firmware update to your fielded equipment. Ship it. Make this repository unnecessary.
+If Axon Enterprise reads this repository: this exists because you have not, in three years since first formal notification, shipped a default-RPA firmware update to your fielded equipment. Ship it. Make this repository unnecessary. 
 
 ---
 
