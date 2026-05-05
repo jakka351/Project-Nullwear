@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380">
+<text x="450" y="26" font-family="Helvetica" font-size="16" font-weight="bold" text-anchor="middle" fill="#0B1B33">Detection range — attacker scanner vs NULLWEAR protection bubble</text>
+<text x="450" y="46" font-family="Helvetica" font-size="11" text-anchor="middle" fill="#666">All distances at a common scale (1 pixel ≈ 1 metre).</text>
+<circle cx="200" cy="220" r="6" fill="#0B1B33"/>
+<text x="200" y="240" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0B1B33">officer</text>
+<circle cx="200" cy="220" r="10" fill="none" stroke="#10B981" stroke-width="1.6" stroke-dasharray="4,3"/>
+<text x="215" y="220" font-family="Helvetica" font-size="9" fill="#10B981">Class-2 BLE: ~10 m</text>
+<circle cx="200" cy="220" r="30" fill="none" stroke="#22C55E" stroke-width="1.6" stroke-dasharray="4,3"/>
+<text x="235" y="220" font-family="Helvetica" font-size="9" fill="#22C55E">Class-2 max: ~30 m</text>
+<circle cx="200" cy="220" r="100" fill="none" stroke="#F59E0B" stroke-width="1.6" stroke-dasharray="4,3"/>
+<text x="305" y="220" font-family="Helvetica" font-size="9" fill="#F59E0B">Class-1 BLE: ~100 m</text>
+<circle cx="200" cy="220" r="200" fill="none" stroke="#EF4444" stroke-width="1.6" stroke-dasharray="4,3"/>
+<text x="405" y="220" font-family="Helvetica" font-size="9" fill="#EF4444">Amplified Class-1: ~200 m</text>
+<circle cx="200" cy="220" r="400" fill="none" stroke="#991B1B" stroke-width="1.6" stroke-dasharray="4,3"/>
+<text x="605" y="220" font-family="Helvetica" font-size="9" fill="#991B1B">Amplified + directional: up to 400 m</text>
+<circle cx="200" cy="220" r="30" fill="#065F46" fill-opacity="0.18" stroke="#065F46" stroke-width="2"/>
+<text x="150" y="198" font-family="Helvetica" font-size="9" font-weight="bold" fill="#065F46">NULLWEAR/P bubble (~30 m)</text>
+<text x="150" y="211" font-family="Helvetica" font-size="8" fill="#065F46">— inside this radius the Axon broadcast is annihilated</text>
+<rect x="580" y="80" width="290" height="250" fill="#F4F6FB" stroke="#0B1B33"/>
+<text x="595" y="105" font-family="Helvetica" font-size="12" font-weight="bold" fill="#0B1B33">Reading the diagram</text>
+<text x="595" y="130" font-family="Helvetica" font-size="10" fill="#333">An Axon body camera broadcasts at roughly +0 dBm.</text>
+<text x="595" y="146" font-family="Helvetica" font-size="10" fill="#333">A receiver at –96 dBm sensitivity (commodity BLE chip)</text>
+<text x="595" y="162" font-family="Helvetica" font-size="10" fill="#333">can decode that broadcast at ~10–30 m line-of-sight.</text>
+<text x="595" y="178" font-family="Helvetica" font-size="10" fill="#333"></text>
+<text x="595" y="194" font-family="Helvetica" font-size="10" fill="#333">An attacker with a Class-1 transmitter receiver and an</text>
+<text x="595" y="210" font-family="Helvetica" font-size="10" fill="#333">amplified low-noise front-end + a directional antenna</text>
+<text x="595" y="226" font-family="Helvetica" font-size="10" fill="#333">can reach up to ~400 m of line-of-sight detection range.</text>
+<text x="595" y="242" font-family="Helvetica" font-size="10" fill="#333"></text>
+<text x="595" y="258" font-family="Helvetica" font-size="10" fill="#333">NULLWEAR/P creates a ~30 m radius zone around the wearer.</text>
+<text x="595" y="274" font-family="Helvetica" font-size="10" fill="#333">Inside that zone, the Axon BLE advertisement is</text>
+<text x="595" y="290" font-family="Helvetica" font-size="10" fill="#333">destroyed in flight — so the attacker's receiver</text>
+<text x="595" y="306" font-family="Helvetica" font-size="10" fill="#333">(at any range) sees no clean packet.</text>
+<text x="595" y="322" font-family="Helvetica" font-size="10" fill="#333"></text>
+<text x="595" y="338" font-family="Helvetica" font-size="10" fill="#333">Coverage gaps in suburbs / industrial estates / regional</text>
+<text x="595" y="354" font-family="Helvetica" font-size="10" fill="#333">areas are NOT a concern — the bubble travels with the</text>
+<text x="595" y="370" font-family="Helvetica" font-size="10" fill="#333">officer, not with fixed infrastructure.</text>
+</svg>

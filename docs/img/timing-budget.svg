@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360">
+<text x="450" y="26" font-family="Helvetica" font-size="16" font-weight="bold" text-anchor="middle" fill="#0B1B33">NULLWEAR Detection-to-TX Timing Budget</text>
+<text x="450" y="46" font-family="Helvetica" font-size="11" text-anchor="middle" fill="#666">Where each microsecond goes between packet preamble and jam pulse on air.</text>
+<rect x="50" y="100" width="32" height="35" fill="#E5E7EB" stroke="#333" stroke-width="0.5"/>
+<text x="66.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">Preamble</text>
+<text x="66.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">8us</text>
+<rect x="82" y="100" width="128" height="35" fill="#D1D5DB" stroke="#333" stroke-width="0.5"/>
+<text x="146.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">Access Address</text>
+<text x="146.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">32us</text>
+<rect x="210" y="100" width="64" height="35" fill="#E0E7FF" stroke="#333" stroke-width="0.5"/>
+<text x="242.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">Header</text>
+<text x="242.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">16us</text>
+<rect x="274" y="100" width="96" height="35" fill="#E0E7FF" stroke="#333" stroke-width="0.5"/>
+<text x="322.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">AdvA[0..2]</text>
+<text x="322.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">24us</text>
+<rect x="370" y="100" width="96" height="35" fill="#FCD9D9" stroke="#333" stroke-width="0.5"/>
+<text x="418.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">AdvA[3..5] OUI</text>
+<text x="418.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">24us</text>
+<rect x="466" y="100" width="24" height="35" fill="#FFE4B5" stroke="#333" stroke-width="0.5"/>
+<text x="478.0" y="147" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">ISR + compare (6us)</text>
+<rect x="490" y="100" width="24" height="35" fill="#FED7AA" stroke="#333" stroke-width="0.5"/>
+<text x="502.0" y="147" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">RADIO ramp-down (6us)</text>
+<rect x="514" y="100" width="160" height="35" fill="#FED7AA" stroke="#333" stroke-width="0.5"/>
+<text x="594.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">RADIO ramp-up</text>
+<text x="594.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">40us</text>
+<rect x="674" y="100" width="240" height="35" fill="#FECACA" stroke="#333" stroke-width="0.5"/>
+<text x="794.0" y="115" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle">JAM ON AIR</text>
+<text x="794.0" y="127" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#444">60us</text>
+<line x1="490" y1="90" x2="490" y2="165" stroke="#065F46" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="490" y="85" font-family="Helvetica" font-size="9" font-weight="bold" text-anchor="middle" fill="#065F46">OUI matched (110 us)</text>
+<line x1="674" y1="90" x2="674" y2="165" stroke="#991B1B" stroke-width="1.5" stroke-dasharray="3,2"/>
+<text x="674" y="85" font-family="Helvetica" font-size="9" font-weight="bold" text-anchor="middle" fill="#991B1B">JAM begins (156 us)</text>
+<rect x="786" y="185" width="96" height="20" fill="#FECACA" stroke="#991B1B" stroke-width="1"/>
+<text x="834.0" y="198" font-family="Helvetica" font-size="8" font-weight="bold" text-anchor="middle" fill="#991B1B">CRC region (typical Axon, 10 B AdvData)</text>
+<text x="50" y="230" font-family="Helvetica" font-size="10" fill="#0B1B33" font-weight="bold">Result: JAM pulse begins at 156 us and continues through the CRC region (184–208 us) of a typical Axon advertisement.</text>
+<text x="50" y="247" font-family="Helvetica" font-size="9" fill="#444">For minimum-length advertisements (no AdvData), CRC is at 104–128 us — the jam may begin too late to fully cover; corruption is still likely but not 100%.</text>
+<text x="20" y="117" font-family="Helvetica" font-size="9" fill="#666" transform="rotate(-90 20 117)">Air timeline →</text>
+</svg>
