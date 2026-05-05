@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jakka351/Project-Nullwear/blob/main/firmware/tools/atp/atp_schema.json",
+  "title": "NULLWEAR Acceptance Test Procedure Report",
+  "description": "Output schema for run_atp.py and any compatible test-rig harness.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "atp_version",
+    "dut_serial",
+    "firmware_revision",
+    "started_at",
+    "finished_at",
+    "overall_verdict",
+    "tests"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "description": "Semantic version of this schema (currently 1.0.0)."
+    },
+    "atp_version": {
+      "type": "string",
+      "description": "Version of the ATP test sequence executed."
+    },
+    "dut_serial": {
+      "type": "string",
+      "description": "Device-under-test serial number (laser-etched on enclosure)."
+    },
+    "firmware_revision": {
+      "type": "string",
+      "description": "Firmware revision string, ideally including a git SHA prefix."
+    },
+    "bench_id": {
+      "type": "string",
+      "description": "Identifier of the test bench / test rig that ran this ATP."
+    },
+    "technician": {
+      "type": "string",
+      "description": "Technician identifier (badge / employee ID / username)."
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp of test start."
+    },
+    "finished_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "overall_verdict": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "MARGINAL", "INDETERMINATE"]
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "verdict"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Test name (e.g. 'T4_rf_annihilation')."
+          },
+          "verdict": {
+            "type": "string",
+            "enum": ["PASS", "FAIL", "MARGINAL", "SKIP"]
+          },
+          "measurements": {
+            "type": "object",
+            "description": "Test-specific raw measurements.",
+            "additionalProperties": true
+          },
+          "notes": {
+            "type": "string"
+          },
+          "elapsed_seconds": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
