@@ -8,7 +8,7 @@ Project NULLWEAR is a security-relevant device. If you discover a vulnerability 
 
 1. **Do not** open a public GitHub issue containing the details of the vulnerability.
 2. Open a private security advisory on GitHub (Security tab → Advisories → New draft security advisory), or
-3. Contact the maintainer directly via email (address in CONTRIBUTING.md), or
+3. Contact the maintainer via PGP-encrypted email — see [`CONTACT.md`](CONTACT.md) for the public key fingerprint and the verification process, or
 4. If you are an officer of an authorised disclosure recipient, contact your agency's NULLWEAR programme liaison.
 
 Use the subject line: `NULLWEAR — security report`.

@@ -1,0 +1,52 @@
+# Pre-commit hooks for Project NULLWEAR.
+#
+# Install: pip install pre-commit && pre-commit install
+# Run on all files: pre-commit run --all-files
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=2048']
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        files: ^firmware/tools/.*\.py$
+        args: ['--line-length=100']
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        files: ^firmware/tools/.*\.py$
+
+  - repo: local
+    hooks:
+      - id: forbid-axon-secrets
+        name: Forbid leaking sensitive operational identifiers
+        entry: >
+          bash -c '
+          if git diff --cached --name-only | xargs -I{} grep -lE "(azurewebsites\.net|rapidapi\.com|^-37\.|^145\.0|police-fhfm)" {} 2>/dev/null; then
+            echo "ERROR: matched a forbidden operational identifier pattern.";
+            echo "See docs/16-secrets-and-publishing-policy.md.";
+            exit 1;
+          fi
+          '
+        language: system
+        pass_filenames: false

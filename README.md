@@ -1,9 +1,10 @@
 <p align="center">
-  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+  <img src="docs/img/logo.svg" alt="Project NULLWEAR" width="800"/>
 </p>
 
+# Project NULLWEAR
 
-**Project Nullwear: A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
+**A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
 
 <p align="center">
   <img src="docs/img/system-architecture.svg" alt="System architecture diagram" width="900"/>
@@ -125,6 +126,32 @@ All three share the same nRF5340 SoC, the same firmware core, and the same OUI-d
 - **Build system:** Nordic nRF Connect SDK (NCS) v2.5+ with Zephyr v3.4+. Supported toolchain: GCC ARM Embedded 12.x. Build with `west build -b nrf5340dk_nrf5340_cpuapp`.
 - **Verification:** Python-based reference receiver (using the `bleak` library) that confirms 0% reception of OUI-matched packets within the protection bubble. ESP32-based test-source emulator that broadcasts Axon-shaped packets for lab testing without using actual Axon equipment.
 
+## Visual reference
+
+### How a packet gets annihilated
+
+<p align="center">
+  <img src="docs/img/ble-packet-structure.svg" alt="BLE advertising packet structure with detection and jam window" width="900"/>
+</p>
+
+### Where each microsecond goes
+
+<p align="center">
+  <img src="docs/img/timing-budget.svg" alt="NULLWEAR detection-to-TX timing budget" width="900"/>
+</p>
+
+### Three form factors, one architecture
+
+<p align="center">
+  <img src="docs/img/deployment-topology.svg" alt="NULLWEAR deployment topology — P, V, S layers" width="900"/>
+</p>
+
+### Range — the protection bubble travels with the officer
+
+<p align="center">
+  <img src="docs/img/range-comparison.svg" alt="Detection range vs NULLWEAR protection bubble" width="900"/>
+</p>
+
 ## Status
 
 | Component | Status |
@@ -137,6 +164,33 @@ All three share the same nRF5340 SoC, the same firmware core, and the same OUI-d
 | Field testing | Protocol documented; awaiting pilot build |
 | ACMA class-licence determination | Pathway identified; awaiting Ministerial action |
 | Pilot deployment | Planned, awaiting authorisation |
+
+## Validation Status — what's verified, what isn't
+
+This section is intentionally explicit. Every claim in this repository falls into one of three buckets. Treat the bucket as the trust level.
+
+| Claim | Verification status | How to verify |
+|---|---|---|
+| OUI `00:25:DF` is registered to Taser International / Axon Enterprise | **Verified** — IEEE OUI registry, public record | Search [https://standards-oui.ieee.org/](https://standards-oui.ieee.org/) for `00-25-DF` |
+| Axon equipment broadcasts BLE advertising packets containing this OUI | **Verified** — DEF CON 31 (2023) public talks; recovered weaponised system in companion disclosure report | Capture BLE advertising near any Axon body camera with `nrfconnect`, `bleak`, or any commercial BLE sniffer |
+| BLE advertising channels are 37 (2402 MHz), 38 (2426 MHz), 39 (2480 MHz) | **Verified** — Bluetooth Core Specification 5.x Vol. 6 Part B §1.4 | Bluetooth specification, freely available |
+| BLE advertising access address is `0x8E89BED6` | **Verified** — Bluetooth Core Specification 5.x Vol. 6 Part B §2.1 | Bluetooth specification |
+| nRF5340 has the silicon timing capability for reactive RX→TX inside the BLE adv packet window | **Verified** — Nordic Semiconductor nRF5340 Product Specification | Nordic datasheet |
+| Selective per-packet CRC corruption is a published, demonstrated technique | **Verified** — see `docs/REFERENCES.md` for academic citations | Read the cited papers |
+| The reference firmware in `firmware/` will compile against nRF Connect SDK v2.5+ | **Awaiting verification** — written from first principles, not yet test-compiled by the author against the production SDK | Build per `docs/07-build-instructions.md` and report results |
+| The reference firmware will achieve ≥99% packet-discard rate at 5 m against an Axon device | **Awaiting verification** — engineering target, not yet measured | Lab test per `docs/12-acceptance-test-procedure.md` against either a real Axon device under controlled conditions or the ESP32-based test source emulator in `firmware/tools/test-source/` |
+| Per-officer protection bubble is 10–30 m with the personal-issue antenna | **Awaiting verification** — based on specification of the reference chip antenna | Field test per `docs/10-field-testing-protocol.md` |
+| BoM cost of under USD/AUD 100 per personal unit | **Reasonable estimate** at 50 000-unit volume from reference suppliers; subject to negotiation with the chosen contract manufacturer | Quote from candidate CMs |
+| ACMA Ministerial determination under LIPD 2015 is the correct legal pathway | **Author's interpretation** — must be validated by counsel familiar with the *Radiocommunications Act 1992* and the LIPD class licence; not a substitute for legal advice | Legal review |
+
+### What this means in practice
+
+- **The science is real.** Selective per-packet BLE-OUI annihilation is a documented technique on the Nordic radio family. The vulnerability it counters is real and verified to be exploited at production scale.
+- **The implementation is a reference.** The firmware is the author's hand-written reference per first principles. It must be built, flashed, and lab-tested by your contract manufacturer before any operational deployment.
+- **Field testing is mandatory.** No officer should carry a NULLWEAR device that has not passed the field-testing protocol in `docs/10-field-testing-protocol.md` against a known Axon BLE source. The protocol is written precisely so that you don't have to take the author's word for anything.
+- **Legal authorisation is mandatory.** Do not deploy the device operationally without the regulatory pathway in `docs/15-legal-and-regulatory.md` having been signed off by your jurisdiction's radio regulator and your agency's general counsel.
+
+If you find a defect, an overstated claim, or a gap between what this repository says and what a built unit actually does, file an issue. **Trust nothing in here that you cannot reproduce on a bench.**
 
 ## How to deploy this
 
@@ -160,6 +214,32 @@ The underlying vulnerability was first formally disclosed to **Victoria Police i
 ## Reporting issues
 
 If you are a member of an authorised disclosure recipient and have technical questions, performance findings, or operational feedback, please open a GitHub issue or contact the author directly. **Do not** open public issues containing operational deployment locations or specific officer information.
+
+For security-relevant matters, see [`SECURITY.md`](SECURITY.md). For cryptographic-material handoff to agencies and contract manufacturers, see [`CONTACT.md`](CONTACT.md).
+
+## Repository hygiene
+
+| Concern | Location |
+|---|---|
+| **Pre-publish checklist (do this first if forking!)** | [`BEFORE_PUBLISH.md`](BEFORE_PUBLISH.md) |
+| Vulnerability disclosure | [`SECURITY.md`](SECURITY.md) |
+| Secure-contact channel for keys / sensitive matters | [`CONTACT.md`](CONTACT.md) |
+| What can be public, what cannot | [`docs/16-secrets-and-publishing-policy.md`](docs/16-secrets-and-publishing-policy.md) |
+| Public-key material (no private keys ever) | [`keys/`](keys/) |
+| Contributing | [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| Code of Conduct | [`.github/CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md) |
+| Changelog | [`CHANGELOG.md`](CHANGELOG.md) |
+| Code ownership | [`.github/CODEOWNERS`](.github/CODEOWNERS) |
+| CI workflow (lint / secrets-scan / firmware-build / smoke-test) | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| Release workflow (signed firmware artefacts) | [`.github/workflows/release.yml`](.github/workflows/release.yml) |
+| Dependabot config | [`.github/dependabot.yml`](.github/dependabot.yml) |
+| Pre-commit hooks (gitleaks, black, ruff, custom) | [`.pre-commit-config.yaml`](.pre-commit-config.yaml) |
+| Issue templates (bug / feature) + routing | [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) |
+| PR template | [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) |
+| Top-level Makefile (convenience targets) | [`Makefile`](Makefile) |
+| Reproducible-build Dockerfile | [`docker/Dockerfile`](docker/Dockerfile) |
+| Asset register reference schema (SQLite) | [`docs/asset-schema.sql`](docs/asset-schema.sql) |
+| Sample ATP report (schema demonstration) | [`firmware/tools/atp/example-report.json`](firmware/tools/atp/example-report.json) |
 
 ## A note on the supplier
 
