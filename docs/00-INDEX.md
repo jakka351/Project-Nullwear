@@ -21,6 +21,8 @@ All documentation for Project NULLWEAR. Numbered for sequential reading; you can
 | 14 | [Security Considerations](14-security-considerations.md) | Security reviewers, agency CSO |
 | 15 | [Legal and Regulatory](15-legal-and-regulatory.md) | Agency General Counsel, regulatory liaisons |
 | 16 | [Secrets, Keys, and Publishing Policy](16-secrets-and-publishing-policy.md) | Project maintainer, agency security officer, anyone with commit access |
+| 17 | [Firmware v1.1 — Dual-Signature Matcher](17-firmware-v1.1-dual-signature-matcher.md) | Firmware engineers, reviewers; pilot CMs |
+| 18 | [Service-Data Payload Analysis](18-service-data-payload-analysis.md) | Security researchers, BLE-protocol analysts |
 | — | [References](REFERENCES.md) | Everyone |
 
 ## Companion documents (PDF, not in this repo)

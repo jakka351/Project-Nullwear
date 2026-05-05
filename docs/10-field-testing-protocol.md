@@ -170,7 +170,136 @@ Expected: zero or near-zero target packets received during the 10-minute window.
 
 ---
 
-## Pass / fail verdict
+---
+
+## Test sequence — wearability and 30-day endurance
+
+These tests answer a different question from PAR: "will an officer actually wear this every shift for two years?"
+
+### Step 11 — 30-day in-service trial
+
+A representative cohort of 10 officers is issued NULLWEAR/P units and instructed to wear them on every shift for 30 consecutive days. Each unit is logged daily on:
+
+| Daily log item | Pass criterion |
+|---|---|
+| Worn for the entire shift? | ≥ 95% of officer-days |
+| Returned to dock at end of shift? | ≥ 95% of officer-days |
+| Charged successfully overnight? | ≥ 98% of unit-nights |
+| Reported faults | ≤ 5 across the cohort over 30 days |
+| Officer comfort complaints | None of severity-3 (refused to wear) |
+| Officer-reported interference with other equipment | None |
+| Lost units | 0 |
+| Damaged units | ≤ 1 across the cohort |
+
+### Step 12 — Drop / impact survival
+
+Per ATP §8 the unit is rated for 1.5 m drop onto concrete, 6 faces. In service the relevant test is "did anyone's actually broken?" — log all impacts reported by officers (including incidents like running through brush, falling onto pavement during a chase, etc.) and at end of trial inspect each unit for:
+
+- Enclosure crack or seal compromise
+- USB-C port damage
+- LED light-pipe damage
+- Belt-clip mount failure
+
+Pass: ≥ 90% of units in original cosmetic and functional condition after the 30-day trial.
+
+### Step 13 — Battery degradation
+
+Measure cell voltage at 100% charge for each unit at start of trial and again at end. Acceptable degradation: ≤ 2% capacity loss over 30 cycles (~4–5% per year extrapolated, on track for the 500-cycle service life specified in the engineering spec).
+
+---
+
+## Test sequence — Axon equipment compatibility
+
+These tests answer the question that General Counsel will ask: "does NULLWEAR break the body camera?"
+
+### Step 14 — Body-camera basic operation
+
+For each pilot officer, with NULLWEAR/P clipped to the duty belt within ~30 cm of an Axon Body 3 (or whatever Axon model is in service):
+
+| Function | Test method | Pass criterion |
+|---|---|---|
+| Manual record activation | Press body-cam button | Recording starts within 1 s |
+| Recording continues for full intended duration | Record 5-minute test clip | Recording reaches 5 min |
+| Recording uploads to Evidence.com | Re-dock at end of test | Upload completes within agency's normal timeframe |
+| Pre-event buffer | Trigger recording, verify pre-buffer captured | Pre-buffer present and intact |
+| Audio capture | Speak during test | Audio present in playback |
+| Video capture | Record visible test pattern | Video present in playback |
+| Battery level reporting | Compare cam display to Evidence.com | Match within ±5% |
+
+### Step 15 — Signal Sidearm (holster trigger)
+
+For officers issued Axon's Signal Sidearm holster sensor:
+
+| Test | Method | Pass criterion |
+|---|---|---|
+| Holster-trigger auto-record activates | Draw firearm from holster | Body-cam recording starts within 1 s |
+| Auto-recording captures full event | Hold draw for 30 s | 30 s of footage available |
+| Holster reset triggers correctly | Re-holster | Body cam continues recording per agency policy |
+
+If Signal Sidearm fails inside the NULLWEAR bubble, this is a **STOP-THE-PILOT** finding. Officer-safety capability cannot be degraded by NULLWEAR.
+
+### Step 16 — Axon View / Axon Aware mobile pairing
+
+If the agency uses the Axon View mobile app or Axon Aware live-streaming:
+
+- Confirm body camera pairs to the officer's phone within normal time limits.
+- Confirm live-stream initiates and remains stable for ≥ 5 minutes.
+- Confirm GPS fix from camera reaches Aware platform.
+
+If pairing FAILS inside NULLWEAR bubble, document specifically: does pairing succeed when NULLWEAR/P is removed temporarily? If yes, this is a real conflict; if no, it's a separate Axon-side issue.
+
+### Step 17 — In-vehicle Axon Fleet
+
+For officers in vehicles equipped with Axon Fleet (in-car video):
+
+- Confirm the in-car unit pairs to the officer's body camera as expected.
+- Confirm dual-camera recording engages on light-bar activation (or other agency-defined trigger).
+- Confirm both video feeds upload normally at end of shift.
+
+This is the test that involves NULLWEAR/V, not just NULLWEAR/P. Run with both layers of protection active.
+
+---
+
+## Test sequence — evidentiary integrity
+
+These tests produce the documentation the agency's evidence custodian will rely on to assert that NULLWEAR's operation does not affect the chain of custody or admissibility of body-camera evidence.
+
+### Step 18 — Evidence chain-of-custody
+
+For 10 randomly-selected pilot recordings:
+
+| Check | Method | Pass criterion |
+|---|---|---|
+| Recording captured and uploaded normally | Compare video file vs incident occurred | Video present |
+| Video file metadata intact | Inspect Evidence.com metadata | Officer ID, timestamps, GPS, camera serial all populated as normal |
+| Video hash unchanged from camera to Evidence.com | Compare hashes | Match |
+| Video duration matches expected | Compare to dispatch logs | ±2 seconds |
+| Audio synchronisation | Playback test | A/V sync within camera's normal tolerance |
+
+### Step 19 — Adversarial-evidence test
+
+The agency evidence custodian (or a designated counsel) reviews 5 random recordings made with NULLWEAR active and assesses:
+
+- Is there ANY visible artefact in the video that could be attributed to NULLWEAR's operation?
+- Is there ANY auditory artefact?
+- Could opposing counsel plausibly argue the recording has been altered?
+
+Expected: NULLWEAR operates on the BLE radio at the link layer. It does not interact with the camera's video or audio pipelines. Recordings should be indistinguishable from non-NULLWEAR recordings.
+
+If the answer to any of the above is "yes", this requires a documented rebuttal **before** the next pilot phase. A common counter-rebuttal: provide chain-of-custody and hash evidence (Step 18) showing the file is byte-identical to what the camera generated.
+
+### Step 20 — Disclosure to court
+
+If any pilot recording is to be tendered as evidence in proceedings during or after the trial, the agency's standard disclosure obligations apply. The pilot programme should pre-prepare a one-page "NULLWEAR information sheet" that the prosecution can append to disclosure if asked. The information sheet should:
+
+- Describe what NULLWEAR is (in lay terms).
+- Explicitly state that NULLWEAR does not affect the camera's video/audio capture, encoding, storage, hash, or upload chain.
+- Cite the chain-of-custody verification performed in Step 18.
+- Identify the agency contact for further technical questions.
+
+---
+
+## Pass / fail verdict (revised)
 
 A unit passes field testing if:
 
@@ -180,6 +309,9 @@ A unit passes field testing if:
 4. Real-shift simulation observes < 200 target packets over 4 hours.
 5. No corruption of non-target BLE traffic.
 6. No measurable Wi-Fi degradation.
+7. **30-day in-service trial passes Step 11 acceptance criteria.** (Mandatory before national rollout; pilot units may be issued before this completes provided officers consent to early-pilot status.)
+8. **All Axon-equipment compatibility tests (Steps 14–17) pass.** (Mandatory — failure of any of these is a stop-the-pilot finding.)
+9. **Evidentiary integrity tests (Steps 18–20) pass.** (Mandatory before any pilot recording is used as evidence.)
 
 A unit fails if any mandatory criterion is missed, OR if more than one non-mandatory criterion is missed.
 
