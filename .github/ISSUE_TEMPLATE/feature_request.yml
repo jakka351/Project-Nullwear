@@ -1,0 +1,50 @@
+name: Feature / enhancement
+description: Suggest an improvement, new capability, or new variant.
+title: "[feat]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem you're trying to solve
+      description: What operational or technical gap motivates this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      multiple: true
+      options:
+        - Firmware change
+        - Hardware change (PCB, mechanical, BoM)
+        - New variant (e.g. NULLWEAR/something-new)
+        - Verification tool
+        - Documentation
+        - Operational procedure
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: validation
+    attributes:
+      label: How would this be validated?
+      description: What test would prove the feature works?
+    validations:
+      required: false

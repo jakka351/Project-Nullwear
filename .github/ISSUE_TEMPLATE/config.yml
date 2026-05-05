@@ -1,0 +1,22 @@
+blank_issues_enabled: false
+contact_links:
+  # NOTE: REPLACE-ME-OWNER must be substituted with the actual GitHub owner
+  # before publication. A simple find/replace across this file and
+  # .github/mlc.json, firmware/tools/atp/atp_schema.json,
+  # .github/CODEOWNERS will do it.
+  - name: Security vulnerability — DO NOT FILE PUBLICLY
+    url: https://github.com/jakka351/Project-Nullwear/security/advisories/new
+    about: |
+      Security vulnerabilities — including any defect that could cause an officer
+      to believe they are protected when they are not — must be reported via a
+      private security advisory, NOT a public issue. See SECURITY.md.
+  - name: Cryptographic material handoff (signing keys)
+    url: https://github.com/jakka351/Project-Nullwear/blob/main/CONTACT.md
+    about: |
+      Distribution of firmware-signing keys to agencies and contract manufacturers
+      uses the secure-contact channel described in CONTACT.md, not public issues.
+  - name: Operational deployment questions (agencies)
+    url: https://github.com/jakka351/Project-Nullwear/blob/main/CONTACT.md
+    about: |
+      Operational matters from serving agencies should use your existing liaison
+      to the maintainer, or PGP-encrypted email per CONTACT.md.

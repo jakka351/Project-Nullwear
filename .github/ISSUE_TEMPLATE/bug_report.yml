@@ -1,0 +1,88 @@
+name: Bug report
+description: Report a defect in the firmware, the documentation, or the verification tools.
+title: "[bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug.
+
+        **Before you submit:** if this is a security vulnerability — including any defect that allows an officer to think they are protected when they are not — please **do not** file it here. Use the private security advisory channel (see [SECURITY.md](../SECURITY.md)).
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which part of the project is affected?
+      options:
+        - Firmware — network core (radio jammer)
+        - Firmware — application core
+        - Firmware — build system / CMake / Kconfig
+        - Verification tool — reference receiver
+        - Verification tool — ESP32 emulator
+        - Verification tool — ATP harness
+        - Documentation
+        - Hardware specification / BoM
+        - Other (describe)
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Firmware revision (if applicable)
+      description: e.g. 1.0.0+abcdef0, or "main @ <commit-sha>"
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear, concise description of the defect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Step-by-step.
+      placeholder: |
+        1. Build firmware with ...
+        2. Flash to nRF5340 DK
+        3. Run reference receiver with ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Hardware, host OS, NCS version, anything relevant.
+      placeholder: |
+        - Host OS: Ubuntu 22.04
+        - NCS version: v2.5.0
+        - Hardware: nRF5340 DK rev 1.0.0
+        - Test source: ESP32-C3 with axon_emulator.ino
+        - Reference receiver: Linux laptop with bleak 0.22
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / output
+      description: Paste relevant log output, error messages, or test reports.
+      render: text
+    validations:
+      required: false
