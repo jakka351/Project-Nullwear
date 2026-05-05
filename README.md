@@ -1,10 +1,8 @@
 <p align="center">
-  <img src="docs/img/logo.svg" alt="Project NULLWEAR" width="800"/>
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
 </p>
 
-# Project NULLWEAR
-
-**A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
+**Project Nullwear: A mitigation strategy for law enforcement that protects officer safety from the Axon Bluetooth vulnerability.**
 
 <p align="center">
   <img src="docs/img/system-architecture.svg" alt="System architecture diagram" width="900"/>
