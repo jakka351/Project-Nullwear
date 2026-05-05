@@ -94,7 +94,7 @@ hEPgGUQTZffYRE0=
 
 ```
 
-**Email address (placeholder — to be replaced):**
+**Email address:**
 
 ```
 contact@testerpresent.com.au
