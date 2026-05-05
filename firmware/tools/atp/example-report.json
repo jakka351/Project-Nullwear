@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "atp_version": "1.0.0",
+  "dut_serial": "NW-P-2026-00007",
+  "firmware_revision": "1.0.0+abcdef0",
+  "bench_id": "ATP-BENCH-3",
+  "technician": "kj-tech-04",
+  "started_at": "2026-04-15T03:14:21+00:00",
+  "finished_at": "2026-04-15T03:22:55+00:00",
+  "overall_verdict": "PASS",
+  "tests": [
+    {
+      "name": "T1_visual_inspection",
+      "verdict": "PASS",
+      "measurements": {
+        "technician_pass": true
+      },
+      "notes": "Enclosure intact. LED light pipe flush. USB-C clean. Belt clip mount points threaded. Serial legibly etched.",
+      "elapsed_seconds": 0.0
+    },
+    {
+      "name": "T2_power_on_self_test",
+      "verdict": "PASS",
+      "measurements": {
+        "boot_banner_seen": true,
+        "ipc_bound_seen": true,
+        "radio_started_seen": true,
+        "log_lines": 47
+      },
+      "notes": "",
+      "elapsed_seconds": 0.12
+    },
+    {
+      "name": "T3_battery_system",
+      "verdict": "PASS",
+      "measurements": {
+        "vbat_mv": 4030,
+        "soc_pct": 87,
+        "max17048_present": true,
+        "chg_stat_responding": true,
+        "quiescent_current_ua": 38
+      },
+      "notes": "Bench harness extension — measurements supplied by Keithley 2110 in series with battery.",
+      "elapsed_seconds": 12.4
+    },
+    {
+      "name": "T4_rf_annihilation",
+      "verdict": "PASS",
+      "measurements": {
+        "target_mac": "00:25:DF:DE:AD:BE",
+        "scan_seconds": 60.0,
+        "baseline_packets": 1500,
+        "observed_packets": 8,
+        "par": 0.9947
+      },
+      "notes": "ESP32 source at 5 m, line-of-sight, anechoic chamber.",
+      "elapsed_seconds": 60.04
+    },
+    {
+      "name": "T5_selective_isolation",
+      "verdict": "PASS",
+      "measurements": {
+        "target_packets": 8,
+        "nontarget_packets": 1247,
+        "unique_nontarget_macs": 14,
+        "scan_seconds": 60.0
+      },
+      "notes": "Non-target sources: chamber operator's phone, two unrelated BLE beacons, one fitness tracker. All decoded normally.",
+      "elapsed_seconds": 60.02
+    },
+    {
+      "name": "T6_T7_charge_sleep_current",
+      "verdict": "PASS",
+      "measurements": {
+        "charge_current_init_ma": 472,
+        "charge_current_at_90pct_ma": 102,
+        "charge_current_at_100pct_ma": 0.6,
+        "full_charge_minutes": 58,
+        "max_case_temp_c": 38.4,
+        "deep_sleep_current_ua": 3.1,
+        "idle_current_ma": 3.4
+      },
+      "notes": "Bench harness extension — measurements supplied by Rigol DP832 + Keithley 2110.",
+      "elapsed_seconds": 3540.0
+    },
+    {
+      "name": "T9_firmware_integrity",
+      "verdict": "PASS",
+      "measurements": {
+        "expected_sha256": "9f3c2a4e8d6b1a2c5f8e9d0b1c3a4e5f6789abcdef0123456789abcdef012345",
+        "actual_sha256": "9f3c2a4e8d6b1a2c5f8e9d0b1c3a4e5f6789abcdef0123456789abcdef012345"
+      },
+      "notes": "Image hash matches CI-built artefact.",
+      "elapsed_seconds": 0.08
+    }
+  ]
+}

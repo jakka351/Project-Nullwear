@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/jakka351/Project-Nullwear/blob/main/firmware/tools/atp/atp_schema.json",
+  "$id": "https://github.com/REPLACE-ME-OWNER/Project-Nullwear/blob/main/firmware/tools/atp/atp_schema.json",
   "title": "NULLWEAR Acceptance Test Procedure Report",
   "description": "Output schema for run_atp.py and any compatible test-rig harness.",
   "type": "object",
