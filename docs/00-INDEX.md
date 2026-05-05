@@ -20,6 +20,7 @@ All documentation for Project NULLWEAR. Numbered for sequential reading; you can
 | 13 | [Pilot Deployment Plan](13-pilot-deployment-plan.md) | Programme managers, agency procurement, sponsors |
 | 14 | [Security Considerations](14-security-considerations.md) | Security reviewers, agency CSO |
 | 15 | [Legal and Regulatory](15-legal-and-regulatory.md) | Agency General Counsel, regulatory liaisons |
+| 16 | [Secrets, Keys, and Publishing Policy](16-secrets-and-publishing-policy.md) | Project maintainer, agency security officer, anyone with commit access |
 | — | [References](REFERENCES.md) | Everyone |
 
 ## Companion documents (PDF, not in this repo)
