@@ -15,7 +15,7 @@
 
 ## What this is
 
-This project is made freely available as open-source information — directly designed for police forces globally to mitigate the dangers of the Axon Bluetooth Vulnerability. It provides police the means to rapidly deploy devices that **annihilate the radio transmissions Axon devices broadcast**, making them invisible to any third-party Bluetooth scanner.
+This is time and hope, this project is made freely available as open-source information — directly designed for police forces globally to mitigate the dangers of the Axon Bluetooth Vulnerability. It provides police the means to rapidly deploy devices that **annihilate the radio transmissions Axon devices broadcast**, making them invisible to any third-party Bluetooth scanner.
 
 The project provides source code, technical instructions, design and engineering specifications that police and government can use to protect officer safety while the foreseeable fallout from dealing with their supplier being less than forefront about the security of their devices is worked through.
 
