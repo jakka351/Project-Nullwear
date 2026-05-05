@@ -8,6 +8,7 @@
   <img src="docs/img/system-architecture.svg" alt="System architecture diagram" width="900"/>
 </p>
 
+>  **PUBLIC NOW!**   
 > ⚠️ **CONFIDENTIAL — Responsible-disclosure pre-release.** This repository is being shared with relevant law enforcement, national-security and parliamentary bodies in advance of public release. Once those bodies have had reasonable opportunity to act, the repository is intended to be made public to ensure no agency in any jurisdiction is left without an answer.
 
 ---
