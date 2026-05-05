@@ -1,0 +1,2 @@
+Secondary Axon signature found. Every observed Axon device broadcasts the 128-bit Service Data UUID 4d455452-4f50-4f4c-4953-444556494345 — which spells "METROPOLISDEVICE" (Axon's old internal name for the cloud platform). 
+This is a SECOND matchable signature beyond the OUI. NULLWEAR's OUI matcher is sufficient on its own, but a future revision could use OUI + UUID for higher-confidence selectivity.
