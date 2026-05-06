@@ -6,6 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added — empirical findings from a second-corpus telemetry analysis (2025–2026 dataset)
+- A new 2025-2026 BLE telemetry corpus, captured across multiple Australian jurisdictions in a fresh database after the user's collection app was reset, was analysed and folded into a Rev B of the *Threat Validation Report* (companion PDF). Notable new findings:
+  - **Cleartext serial-number broadcast.** Every observed Axon Body 3 / Body 3 Plus broadcasts its full hardware model code (e.g. `X60J0xxxN`, `X60M0xxx4`) in plaintext as bytes 14–22 of the FE6B service-data payload. This is a third independent stable identifier per advertisement, in addition to the MAC and the 80-bit FE6B identifier.
+  - **MAC[3] byte = jurisdiction signature.** The middle byte of the OUI-prefixed MAC correlates strongly with the deploying jurisdiction (Vic Pol = `0x68`, NSW Pol = `0xA1/9A/C0/C1/C2/C5`, WA Pol = `0x7F`). Sub-model variant (`X60J` vs `X60M`) further distinguishes equipment classes by jurisdiction. Agency attribution becomes inferrable from passive radio observation alone.
+  - **Shift-change wave detection.** A 90-minute Sydney station session captured three discrete waves of officer arrivals — operationally significant because it means a passive external observer can characterise station shift-change times without entering the building.
+  - **Court-environment radio profile** distinguished from station-environment radio profile (low Axon density, high enterprise-access-control device density, name-broadcasting wayfinding devices like `"Court EXIT"`).
+  - **Five-year longitudinal Axon fleet view** (2021–2026, five SQLite snapshots): zero Axon devices in May 2021 → 46 by Oct 2024 (Vic Pol Body 3 mass deployment) → fully rotated fleet by 2026; 35 unique X60-series serial numbers catalogued in plain text by passive observation.
+- *Threat Validation Report* PDF rebuilt as **Rev B** (13 pages, was 10) — adds §12 longitudinal-and-multi-corpus addendum.
+
+### Changed — strategic Mitigation Report §11.3 (vendor recommendation)
+- Expanded vendor recommendation to specify that **RPA on the MAC alone is an incomplete fix**. Axon must additionally:
+  - Redact or rotate the model + serial cleartext fields in bytes 14–22 of the FE6B payload.
+  - Redact or randomise the 80-bit per-device identifier in bytes 2–10 of the FE6B payload.
+  - Avoid encoding agency / jurisdiction information in the MAC[3] production-batch byte.
+- *Mitigation Report* PDF rebuilt with the expanded §11.3 (still 11 pages).
+
+### Honest correction
+- The Rev A claim of a "3-year persistent device" (`00:25:DF:1E:B9:17`) was incorrect and has been retracted in Rev B. RaMBLE's database is cumulative, so a single 2021 detection propagated into all subsequent exports until the user reset the app. The cross-snapshot MAC overlaps among the older snapshots are mostly database-cumulation artefacts, not re-detections of the same device. The 2024 → 2026 zero overlap remains valid evidence of fleet rotation because the 2026 dataset was captured in a fresh database.
+
+### Operational redactions
+- All references to broadcast media, filming, and specific identifiable third-party detected devices removed from the Threat Validation Report at user request.
+- Specific date and city name of one regional court session redacted to jurisdiction-only ("WA Magistrates Court", date redacted) at user request.
+
 ### Added — implementation feasibility pack
 - **Police Implementation Guide** ([`IMPLEMENTATION-GUIDE.md`](IMPLEMENTATION-GUIDE.md)) — single-document decision-tree for agency decision-makers, week-by-week schedule from disclosure to officer-in-the-field.
 - **Hardware Feasibility Pack** ([`feasibility-pack/`](feasibility-pack/)) — eight-document CM-ready bundle: SOW template, RFQ quick reference, BoM CSV, ATP summary, firmware-handoff workflow, mechanical summary, regulatory summary, bidder checklist.
