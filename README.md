@@ -90,7 +90,7 @@ Every Axon Enterprise BLE-emitting device — body-worn cameras, smart holsters,
 happening. Their radios are not compromised. Their networks are not breached. Their devices
 behave exactly as designed. The exposure comes from the ordinary, by-design operation of
 standard-issue Axon equipment, broadcasting a manufacturer code that distinguishes it from any other
-Bluetooth device on earth."* 7.2 - WEAPONISED BLUETOOTH TRACKING OF POLICE
+Bluetooth device on earth."* Mitigation Report, §7.2.
 
 ## The fix in one paragraph
 
