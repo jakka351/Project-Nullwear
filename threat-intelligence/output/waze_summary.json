@@ -1,0 +1,130 @@
+{
+  "source": "Waze crowd-sourced police-reports CSV (Greater Melbourne)",
+  "total_reports": 1008227,
+  "date_first": "2024-07-29T10:49:03",
+  "date_last": "2025-02-05T09:07:20",
+  "span_days": 190,
+  "average_reports_per_day": 5306.5,
+  "average_reports_per_hour": 221.1,
+  "geographic_bbox": {
+    "lat_min": -38.702436,
+    "lat_max": -36.915728,
+    "lng_min": 144.065548,
+    "lng_max": 145.860829,
+    "approx_extent_km": {
+      "tall": 198.3,
+      "wide": 157.4
+    }
+  },
+  "hour_of_day_aest": {
+    "0": 49334,
+    "1": 52487,
+    "2": 55675,
+    "3": 56483,
+    "4": 57249,
+    "5": 56898,
+    "6": 60520,
+    "7": 62776,
+    "8": 60775,
+    "9": 61394,
+    "10": 57073,
+    "11": 47104,
+    "12": 39787,
+    "13": 32777,
+    "14": 24405,
+    "15": 17428,
+    "16": 13653,
+    "17": 13025,
+    "18": 16714,
+    "19": 22678,
+    "20": 27799,
+    "21": 34776,
+    "22": 42048,
+    "23": 45369
+  },
+  "day_of_week_aest": {
+    "Mon": 136062,
+    "Tue": 138644,
+    "Wed": 135931,
+    "Thu": 138078,
+    "Fri": 156563,
+    "Sat": 160381,
+    "Sun": 142568
+  },
+  "monthly_trend": {
+    "2024-07": 10695,
+    "2024-08": 177569,
+    "2024-09": 154943,
+    "2024-10": 153200,
+    "2024-11": 152418,
+    "2024-12": 159384,
+    "2025-01": 176595,
+    "2025-02": 23423
+  },
+  "top_10_hotspots_offset_km": [
+    {
+      "rank": 1,
+      "east_km_from_centroid": -7.64,
+      "north_km_from_centroid": 4.74,
+      "reports_in_500m_cell": 3508
+    },
+    {
+      "rank": 2,
+      "east_km_from_centroid": 2.88,
+      "north_km_from_centroid": 14.17,
+      "reports_in_500m_cell": 2785
+    },
+    {
+      "rank": 3,
+      "east_km_from_centroid": -12.9,
+      "north_km_from_centroid": 16.39,
+      "reports_in_500m_cell": 2700
+    },
+    {
+      "rank": 4,
+      "east_km_from_centroid": -31.75,
+      "north_km_from_centroid": 33.6,
+      "reports_in_500m_cell": 2464
+    },
+    {
+      "rank": 5,
+      "east_km_from_centroid": -5.01,
+      "north_km_from_centroid": 20.83,
+      "reports_in_500m_cell": 2337
+    },
+    {
+      "rank": 6,
+      "east_km_from_centroid": 5.94,
+      "north_km_from_centroid": -10.25,
+      "reports_in_500m_cell": 2277
+    },
+    {
+      "rank": 7,
+      "east_km_from_centroid": 9.01,
+      "north_km_from_centroid": -12.47,
+      "reports_in_500m_cell": 2002
+    },
+    {
+      "rank": 8,
+      "east_km_from_centroid": -6.33,
+      "north_km_from_centroid": 5.29,
+      "reports_in_500m_cell": 1961
+    },
+    {
+      "rank": 9,
+      "east_km_from_centroid": 2.0,
+      "north_km_from_centroid": -2.48,
+      "reports_in_500m_cell": 1933
+    },
+    {
+      "rank": 10,
+      "east_km_from_centroid": 6.82,
+      "north_km_from_centroid": -4.14,
+      "reports_in_500m_cell": 1916
+    }
+  ],
+  "inter_report_interval_seconds": {
+    "p50": 0,
+    "p90": 35
+  }
+}
