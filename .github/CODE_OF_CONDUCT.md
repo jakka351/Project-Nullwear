@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
+
 # Code of Conduct
 
 Project NULLWEAR is a small, focused open-source project that exists to protect the safety of serving law-enforcement officers from a real radio-frequency surveillance threat. We expect everyone participating in the project — contributors, reviewers, agencies, manufacturers, security researchers — to behave like adults engaged in serious work.
