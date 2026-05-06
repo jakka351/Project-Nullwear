@@ -88,7 +88,7 @@ static __attribute__((aligned(4))) uint8_t s_jam_buf[40] = {
     0x6E, 0x64, 0x20, 0x41, 0x78, 0x6F, 0x6E, 0x20,
 };
 
-// :D hex to Ascii bruh!
+// 🫡
 
 /* Channel hop state. */
 static const uint8_t s_channels[3] = {
