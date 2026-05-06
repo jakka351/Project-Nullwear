@@ -22,13 +22,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   - Avoid encoding agency / jurisdiction information in the MAC[3] production-batch byte.
 - *Mitigation Report* PDF rebuilt with the expanded §11.3 (still 11 pages).
 
-### Honest correction
-- The Rev A claim of a "3-year persistent device" (`00:25:DF:1E:B9:17`) was incorrect and has been retracted in Rev B. RaMBLE's database is cumulative, so a single 2021 detection propagated into all subsequent exports until the user reset the app. The cross-snapshot MAC overlaps among the older snapshots are mostly database-cumulation artefacts, not re-detections of the same device. The 2024 → 2026 zero overlap remains valid evidence of fleet rotation because the 2026 dataset was captured in a fresh database.
-
-### Operational redactions
-- All references to broadcast media, filming, and specific identifiable third-party detected devices removed from the Threat Validation Report at user request.
-- Specific date and city name of one regional court session redacted to jurisdiction-only ("WA Magistrates Court", date redacted) at user request.
-
 ### Added — implementation feasibility pack
 - **Police Implementation Guide** ([`IMPLEMENTATION-GUIDE.md`](IMPLEMENTATION-GUIDE.md)) — single-document decision-tree for agency decision-makers, week-by-week schedule from disclosure to officer-in-the-field.
 - **Hardware Feasibility Pack** ([`feasibility-pack/`](feasibility-pack/)) — eight-document CM-ready bundle: SOW template, RFQ quick reference, BoM CSV, ATP summary, firmware-handoff workflow, mechanical summary, regulatory summary, bidder checklist.
