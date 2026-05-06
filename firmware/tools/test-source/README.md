@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
+
 # Axon BLE Source Emulator (ESP32)
 
 Test source for NULLWEAR verification. Turns any ESP32 dev board into a fake Axon BLE broadcaster, so you can verify NULLWEAR works without needing access to actual Axon equipment for lab testing.
