@@ -14,7 +14,7 @@
 ---
   
 <p align="right"> 
-<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/Bluetooth.svg.png" height="20%" width="20%" /></p>
+<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/Bluetooth.svg.png" height="12%" width="12%" /></p>
 </p>
   
 ## What this is
