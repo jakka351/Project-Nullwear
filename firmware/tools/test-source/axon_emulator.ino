@@ -127,12 +127,22 @@ static const uint8_t MAC_DOCKED_FALLBACK[6] = { 0x02, 0x00, 0x00, 0x00, 0x00, 0x
 // payload with a recognisable but obviously-fake serial so an analyst
 // inspecting capture files can immediately tell it came from the
 // emulator and not a real Axon device.
+//
+// LAB-MARKER (dual-use safety):
+//   Bytes 0-3 are a fixed 4-byte sentinel "NWLB" (0x4E 0x57 0x4C 0x42 —
+//   "NullWear LaB") that does NOT appear in any real Axon FE6B payload
+//   observed in the wild. The reference receiver detects this sentinel
+//   and explicitly flags the source as TEST-SOURCE rather than letting
+//   it count toward genuine Axon detections. This prevents the emulator
+//   from being used to poison BLE telemetry datasets or to spoof Axon
+//   presence in someone else's threat-intel pipeline. Do NOT remove the
+//   sentinel without also auditing the receiver's marker check.
 
 static const uint8_t FE6B_PAYLOAD[23] = {
-    /*  0 */ 0x00, 0x00,
-    /*  2 */ 0x4E, 0x55, 0x4C, 0x57, 0x45, 0x41, 0x52, 0x21, 0x21, 0x21,  // "NULWEAR!!!"
+    /*  0 */ 0x4E, 0x57, 0x4C, 0x42,                                        // "NWLB" sentinel — lab marker
+    /*  4 */ 0x4E, 0x55, 0x4C, 0x57, 0x45, 0x41, 0x52, 0x21,                // "NULWEAR!" filler
     /* 12 */ 0x00, 0x00,
-    /* 14 */ 'X','6','0','J','0','T','S','T','1',                          // synthetic 9-char serial
+    /* 14 */ 'X','6','0','J','0','T','S','T','1',                           // synthetic 9-char serial
 };
 
 // ---- State for MODE_DUAL ------------------------------------------
