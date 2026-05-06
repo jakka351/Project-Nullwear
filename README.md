@@ -12,7 +12,11 @@
 > ⚠️ **CONFIDENTIAL — Responsible-disclosure pre-release.** This repository is being shared with relevant law enforcement, national-security and parliamentary bodies in advance of public release. Once those bodies have had reasonable opportunity to act, the repository is intended to be made public to ensure no agency in any jurisdiction is left without an answer.
 
 ---
-
+  
+<p align="right"> 
+<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/Bluetooth.svg.png" height="20%" width="20%" /></p>
+</p>
+  
 ## What this is
 
 This is time and hope, this project is made freely available as open-source information — directly designed for police forces globally to mitigate the dangers of the Axon Bluetooth Vulnerability. It provides police the means to rapidly deploy devices that **annihilate the radio transmissions Axon devices broadcast**, making them invisible to any third-party Bluetooth scanner.
@@ -251,3 +255,7 @@ If Axon Enterprise reads this repository: this exists because you have not, in t
 Stay safe out there. 🫡
 
 <img src="https://github.com/jakka351/Project-Nullwear/blob/main/Flag_of_Australia.svg" height="35%" width="35%" />
+  
+<img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/police_nullwear_animated.gif"/>
+
+
