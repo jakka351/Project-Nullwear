@@ -1,0 +1,43 @@
+======================================================================
+ SYDNEY-STATION DATASET � INITIAL PROFILE
+======================================================================
+
+Total unique devices:        41,935
+Total detection events:      400,732
+User-tagged devices:         127
+
+First detection:             2025-09-09T13:10:34+00:00
+Last detection:              2026-05-04T05:37:45+00:00
+Span:                        20449631 seconds = 340827.2 minutes = 5680.5 hours
+Average detections/second:   0.0
+
+GPS bounding box:
+  Lat: -*****787 to -*****41  (~659.17 km tall)
+  Lng: 1*****080 to 1*****44  (~3203.02 km wide)
+  Centroid: (-*****86, 1*****81)
+
+=== Axon device identification ===
+  By OUI (00:25:DF):                          31
+  By zero-MAC (00:00:00:00:00:00):            1
+  By FE6B service-data UUID:                  6
+  By METROPOLISDEVICE 128-bit UUID:           4
+  By docked-mode 9ec5d2b8 128-bit UUID:       0
+
+Total Axon-related detection events:          578
+
+=== Top device-type tags (RaMBLE auto-identified) ===
+  14973  Apple
+  10173  Apple, Nearby
+   2936  Microsoft
+   2891  Google
+   2678  Apple, iOS background BLE app
+    486  Smart TV, Samsung Electronics
+    451  Apple, Handoff
+    418  Airplay, Apple
+    370  Samsung Electronics
+    267  iBeacon
+    174  Bose
+    150  Sonos
+    103  Google, Chromecast
+    102  Apple, Wireless Audio
+     73  Apple, Touch Setup
