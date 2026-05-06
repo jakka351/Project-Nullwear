@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 880" width="1100" height="880">
+  <defs>
+    <marker id="arrowM" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,8 L8,4 z" fill="#0B1B33"/>
+    </marker>
+
+    <linearGradient id="ringMit" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#065F46"/>
+    </linearGradient>
+    <linearGradient id="ringVendor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="ringAdj" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#F87171"/>
+      <stop offset="100%" stop-color="#7F1D1D"/>
+    </linearGradient>
+    <linearGradient id="ringOOS" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#374151"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1100" height="880" fill="#FFFFFF"/>
+
+  <!-- title block -->
+  <text x="550" y="34" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#0B1B33">PROJECT NULLWEAR — Threat Coverage Matrix</text>
+  <text x="550" y="56" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">What NULLWEAR mitigates, what only the vendor can fix, and what is out of scope. Read this before claiming "officer untrackability".</text>
+  <text x="550" y="72" font-family="Helvetica, Arial, sans-serif" font-size="10" text-anchor="middle" fill="#666">Companion to: Mitigation Report §11, Engineering Spec, Threat Validation Report Rev B, threat-intelligence/ subfolder.</text>
+
+  <!-- ===================== LEGEND ===================== -->
+  <g transform="translate(40,98)">
+    <rect x="0" y="0" width="1020" height="48" rx="6" fill="#F3F4F6" stroke="#0B1B33" stroke-width="1"/>
+
+    <g transform="translate(14,16)">
+      <rect width="20" height="20" fill="url(#ringMit)" stroke="#000" stroke-width="0.5"/>
+      <text x="28" y="14" font-family="Helvetica" font-size="11" font-weight="bold" fill="#0B1B33">MITIGATED</text>
+      <text x="28" y="28" font-family="Helvetica" font-size="9" fill="#666">NULLWEAR firmware annihilates this layer in the protected zone.</text>
+    </g>
+
+    <g transform="translate(280,16)">
+      <rect width="20" height="20" fill="url(#ringVendor)" stroke="#000" stroke-width="0.5"/>
+      <text x="28" y="14" font-family="Helvetica" font-size="11" font-weight="bold" fill="#0B1B33">VENDOR-ONLY FIX</text>
+      <text x="28" y="28" font-family="Helvetica" font-size="9" fill="#666">Cannot be defended client-side. Requires Axon firmware change.</text>
+    </g>
+
+    <g transform="translate(560,16)">
+      <rect width="20" height="20" fill="url(#ringAdj)" stroke="#000" stroke-width="0.5"/>
+      <text x="28" y="14" font-family="Helvetica" font-size="11" font-weight="bold" fill="#0B1B33">ADJACENT — OUT OF SCOPE</text>
+      <text x="28" y="28" font-family="Helvetica" font-size="9" fill="#666">Independent surveillance layer. NULLWEAR does NOT cover it.</text>
+    </g>
+
+    <g transform="translate(840,16)">
+      <rect width="20" height="20" fill="url(#ringOOS)" stroke="#000" stroke-width="0.5"/>
+      <text x="28" y="14" font-family="Helvetica" font-size="11" font-weight="bold" fill="#0B1B33">UNRELATED</text>
+      <text x="28" y="28" font-family="Helvetica" font-size="9" fill="#666">Different problem space entirely.</text>
+    </g>
+  </g>
+
+  <!-- ===================== SCOPE STACK (LEFT VISUAL) ===================== -->
+  <g transform="translate(40,170)">
+    <text x="200" y="-6" font-family="Helvetica" font-size="13" font-weight="bold" text-anchor="middle" fill="#0B1B33">SURVEILLANCE STACK · per-officer ↑ to area-level ↓</text>
+
+    <!-- concentric ring of layers -->
+    <g transform="translate(200,290)">
+      <!-- outermost: unrelated -->
+      <circle cx="0" cy="0" r="280" fill="url(#ringOOS)" opacity="0.28" stroke="#374151" stroke-width="1"/>
+      <text x="0" y="-258" font-family="Helvetica" font-size="11" font-weight="bold" text-anchor="middle" fill="#1F2937">UNRELATED LAYERS</text>
+
+      <!-- adjacent ring: out of scope but real surveillance -->
+      <circle cx="0" cy="0" r="220" fill="url(#ringAdj)" opacity="0.55" stroke="#7F1D1D" stroke-width="1"/>
+      <text x="0" y="-200" font-family="Helvetica" font-size="11" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ADJACENT SURVEILLANCE</text>
+
+      <!-- vendor ring -->
+      <circle cx="0" cy="0" r="160" fill="url(#ringVendor)" opacity="0.95" stroke="#92400E" stroke-width="1"/>
+      <text x="0" y="-138" font-family="Helvetica" font-size="11" font-weight="bold" text-anchor="middle" fill="#0B1B33">VENDOR-ONLY FIXES</text>
+
+      <!-- mitigated core -->
+      <circle cx="0" cy="0" r="100" fill="url(#ringMit)" stroke="#065F46" stroke-width="1"/>
+      <text x="0" y="-60" font-family="Helvetica" font-size="11" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="0" y="-44" font-family="Helvetica" font-size="9"  text-anchor="middle" fill="#FFFFFF">by NULLWEAR firmware</text>
+
+      <!-- core labels -->
+      <text x="0" y="-20" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">Per-officer Axon BLE:</text>
+      <text x="0" y="-6"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">• MAC (00:25:DF prefix)</text>
+      <text x="0" y="8"   font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">• FE6B service UUID</text>
+      <text x="0" y="22"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">• Cleartext serial bytes</text>
+      <text x="0" y="36"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">• Sanitised-MAC docked</text>
+      <text x="0" y="50"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">• MAC[3] jurisdiction byte</text>
+
+      <!-- vendor ring labels (positioned around the outside of mitigated core) -->
+      <text x="-90" y="-100" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0B1B33">RPA on MAC</text>
+      <text x="90"  y="-100" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0B1B33">Payload field rotation</text>
+      <text x="-110" y="105" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0B1B33">Drop jurisdiction encoding</text>
+      <text x="110" y="105"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#0B1B33">Encrypted FE6B payload</text>
+
+      <!-- adjacent layer labels -->
+      <text x="-150" y="-160" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">Crowd-sourced</text>
+      <text x="-150" y="-148" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">police-presence apps</text>
+      <text x="160"  y="-160" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">Court / station BLE</text>
+      <text x="160"  y="-148" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">environment fingerprint</text>
+      <text x="-150" y="170"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">ALPR / patrol-car</text>
+      <text x="-150" y="182"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">visual tracking</text>
+      <text x="160"  y="170"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">Officer's personal</text>
+      <text x="160"  y="182"  font-family="Helvetica" font-size="9" text-anchor="middle" fill="#FFFFFF">phone / wearables</text>
+
+      <!-- unrelated labels -->
+      <text x="0"    y="240" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#1F2937">Cellular IMSI catchers · P25 voice traffic · Visual ID (uniforms/markings)</text>
+    </g>
+  </g>
+
+  <!-- ===================== TABLE (RIGHT) ===================== -->
+  <g transform="translate(470,170)">
+    <text x="295" y="-6" font-family="Helvetica" font-size="13" font-weight="bold" text-anchor="middle" fill="#0B1B33">PER-LAYER COVERAGE</text>
+
+    <!-- header -->
+    <rect x="0" y="0" width="590" height="22" fill="#0B1B33"/>
+    <text x="8"   y="15" font-family="Helvetica" font-size="10" font-weight="bold" fill="#FFFFFF">Layer</text>
+    <text x="220" y="15" font-family="Helvetica" font-size="10" font-weight="bold" fill="#FFFFFF">What an attacker gets from it</text>
+    <text x="500" y="15" font-family="Helvetica" font-size="10" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Status</text>
+
+    <!-- Row helper: each row 28 high.  -->
+    <!-- ROW 1 — Per-officer Axon BLE MAC -->
+    <g transform="translate(0,22)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringMit)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Per-officer Axon BLE MAC</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">00:25:DF prefix · per-device stable</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Identify the officer at scanner range</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Re-identification across time/location</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Phase 1 OUI match</text>
+    </g>
+
+    <!-- ROW 2 — FE6B service UUID -->
+    <g transform="translate(0,50)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringMit)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">FE6B service-data UUID</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Axon Public Safety (Bluetooth SIG)</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Catches docked / non-deployed devices</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Vendor attribution from passive RX</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Phase 2 (v1.1)</text>
+    </g>
+
+    <!-- ROW 3 — Cleartext serial -->
+    <g transform="translate(0,78)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringMit)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Cleartext serial bytes</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">"X60J0xxxN" at FE6B bytes 14-22</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Third stable identifier per packet</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Survives MAC randomisation if shipped</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">CRC corruption</text>
+    </g>
+
+    <!-- ROW 4 — Sanitised AdvA -->
+    <g transform="translate(0,106)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringMit)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Sanitised AdvA / docked broadcast</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">All-zero MAC + FE6B</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Detect Axon presence at locker / dock</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">"Officer is OFF shift" inference</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Phase 2 + 3</text>
+    </g>
+
+    <!-- ROW 5 — MAC[3] jurisdiction byte -->
+    <g transform="translate(0,134)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringMit)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">MAC[3] jurisdiction byte</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Vic 0x68, NSW 0xA1/9A/C0…, WA 0x7F</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Agency attribution from radio alone</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">"Vic Pol just walked into NSW"</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">MITIGATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Phase 1 corruption</text>
+    </g>
+
+    <!-- ROW 6 — RPA on MAC (vendor) -->
+    <g transform="translate(0,170)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringVendor)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Resolvable Private Address (RPA)</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Per-broadcast MAC rotation</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Defeats long-term re-identification</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Standard BLE privacy feature</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#0B1B33">VENDOR FIX</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#0B1B33">Axon firmware</text>
+    </g>
+
+    <!-- ROW 7 — Payload field randomisation (vendor) -->
+    <g transform="translate(0,198)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringVendor)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Payload field randomisation</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">80-bit ID + serial bytes redacted</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Removes the identifiers entirely</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Even at zero protection range</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#0B1B33">VENDOR FIX</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#0B1B33">See Mit Rep §11.3</text>
+    </g>
+
+    <!-- ROW 8 — Drop jurisdiction encoding (vendor) -->
+    <g transform="translate(0,226)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringVendor)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">De-encode jurisdiction in MAC[3]</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Production-batch byte assignment</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Removes agency-attribution signal</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Manufacturing-process change</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#0B1B33">VENDOR FIX</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#0B1B33">Axon process</text>
+    </g>
+
+    <!-- ROW 9 — Crowd-sourced police presence (adjacent) -->
+    <g transform="translate(0,262)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringAdj)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Crowd-sourced police-presence apps</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">~1M reports / 190 days, 1 / 16 sec</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Area-level police awareness</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Where police are concentrated</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ADJACENT</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">threat-intel/01</text>
+    </g>
+
+    <!-- ROW 10 — Court/station BLE fingerprint (adjacent) -->
+    <g transform="translate(0,290)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringAdj)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Environment-BLE fingerprinting</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Wayfinding, badge readers, AC ctl</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Distinguish court / station / dock</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">"Court EXIT" device names etc.</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ADJACENT</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">non-Axon BLE</text>
+    </g>
+
+    <!-- ROW 11 — Officer's personal phone (adjacent) -->
+    <g transform="translate(0,318)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringAdj)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Officer's personal phone / wearables</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">BLE / Wi-Fi probe / app telemetry</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Personal-device tracking is its own field</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Modern OSes already RPA-rotate</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ADJACENT</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Different problem</text>
+    </g>
+
+    <!-- ROW 12 — ALPR / patrol-car visual (adjacent) -->
+    <g transform="translate(0,346)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringAdj)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">ALPR / visual patrol-car tracking</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Camera-based, optical</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">Where marked vehicles are</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Human eyeball is sufficient</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">ADJACENT</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Optical layer</text>
+    </g>
+
+    <!-- ROW 13 — Cellular / IMSI (unrelated) -->
+    <g transform="translate(0,382)">
+      <rect x="0" y="0" width="590" height="28" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringOOS)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Cellular IMSI catchers, P25, encrypted radio</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Different RF bands, different threats</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">N/A to BLE identity layer</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Listed for completeness only</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">UNRELATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Different stack</text>
+    </g>
+
+    <!-- ROW 14 — Visual ID / uniforms (unrelated) -->
+    <g transform="translate(0,410)">
+      <rect x="0" y="0" width="590" height="28" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="0.5"/>
+      <rect x="460" y="0" width="130" height="28" fill="url(#ringOOS)"/>
+      <text x="8"   y="12" font-family="Helvetica" font-size="9" font-weight="bold" fill="#0B1B33">Visual identification</text>
+      <text x="8"   y="23" font-family="Helvetica" font-size="8" fill="#666">Uniforms, badges, marked vehicles</text>
+      <text x="220" y="12" font-family="Helvetica" font-size="9" fill="#0B1B33">An attacker with line of sight wins</text>
+      <text x="220" y="23" font-family="Helvetica" font-size="8" fill="#666">Out of cyber-physical scope</text>
+      <text x="525" y="12" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle" fill="#FFFFFF">UNRELATED</text>
+      <text x="525" y="23" font-family="Helvetica" font-size="7" text-anchor="middle" fill="#FFFFFF">Optical / human</text>
+    </g>
+  </g>
+
+  <!-- ===================== HONESTY STATEMENT (BOTTOM) ===================== -->
+  <g transform="translate(40,720)">
+    <rect x="0" y="0" width="1020" height="118" rx="6" fill="#FEF3C7" stroke="#92400E" stroke-width="1"/>
+    <text x="14" y="22" font-family="Helvetica" font-size="13" font-weight="bold" fill="#7C2D12">SCOPE STATEMENT — read this before claiming "officer untrackability"</text>
+    <text x="14" y="44" font-family="Helvetica" font-size="11" fill="#0B1B33">
+      NULLWEAR mitigates the <tspan font-weight="bold">per-officer Axon BLE identity layer</tspan>, in the <tspan font-weight="bold">protected zone</tspan> around a NULLWEAR/P, /V or /S device, against
+    </text>
+    <text x="14" y="60" font-family="Helvetica" font-size="11" fill="#0B1B33">
+      <tspan font-weight="bold">passive RF observers.</tspan> It does not, and cannot, defeat: (a) crowd-sourced police-presence reporting via consumer apps; (b) ALPR / visual / human
+    </text>
+    <text x="14" y="76" font-family="Helvetica" font-size="11" fill="#0B1B33">
+      tracking of marked vehicles or uniformed officers; (c) cellular-side surveillance; (d) tracking of the officer's personal phone or wearables; (e) the
+    </text>
+    <text x="14" y="92" font-family="Helvetica" font-size="11" fill="#0B1B33">
+      environmental BLE fingerprint of the location they're in. Three of the five mitigated layers can also be closed by an Axon firmware change (RPA + payload
+    </text>
+    <text x="14" y="108" font-family="Helvetica" font-size="11" fill="#0B1B33">
+      randomisation + dropping jurisdiction-encoding in MAC[3]) — once shipped, NULLWEAR's role is reduced. <tspan font-weight="bold">Don't sell this as universal coverage.</tspan>
+    </text>
+  </g>
+
+  <!-- footer -->
+  <text x="550" y="868" font-family="Helvetica" font-size="9" text-anchor="middle" fill="#666">
+    Source: Mitigation Report §11 · Threat Validation Report Rev B §12 · threat-intelligence/01-waze-crowd-source-analysis.md · firmware/nullwear-p/network_core/src/radio_jammer.c (v1.1.1)
+  </text>
+</svg>
