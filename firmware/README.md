@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+  
 # NULLWEAR Firmware
 
 Firmware sources and verification tools.
