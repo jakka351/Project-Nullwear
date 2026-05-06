@@ -208,6 +208,10 @@ If you find a defect, an overstated claim, or a gap between what this repository
 
 Released under the **MIT License** — see [`LICENSE`](LICENSE). The intent is that any law-enforcement or national-security agency in any friendly jurisdiction may take this work, build the devices, and protect their officers, without legal encumbrance.
 
+<p align="right"> 
+<img align="right" src="https://user-images.githubusercontent.com/57064943/163706907-48fcd541-6998-42c8-a673-b33784e09128.png" height="25%" width="25%" /></p>
+</p>
+  
 ## Author and disclosure history
 
 **Benjamin Jack Leighton** — Tester Present Specialist Automotive Solutions.
