@@ -86,6 +86,12 @@ Project-Nullwear/
 
 Every Axon Enterprise BLE-emitting device — body-worn cameras, smart holsters, Tasers, in-car video units — broadcasts a Bluetooth Low Energy advertising packet many times per second. Every one of those packets contains a Media Access Control (MAC) address whose first three bytes (the OUI) are `00:25:DF`, the IEEE-registered identifier for Taser International / Axon Enterprise. Anyone within Bluetooth radio range — typically 10–100 m line-of-sight, but up to **400 m** with a directional antenna and amplified front-end — can passively detect, identify and locate any officer wearing Axon equipment, using nothing more sophisticated than a phone, a Raspberry Pi, or a $5 ESP32. A productionised, city-scale weaponisation of this vulnerability has been recovered and documented in the companion disclosure report.
 
+*"The hardest fact to convey to non-technical audiences is this: the police themselves cannot see this
+happening. Their radios are not compromised. Their networks are not breached. Their devices
+behave exactly as designed. The exposure comes from the ordinary, by-design operation of
+standard-issue Axon equipment, broadcasting a manufacturer code that distinguishes it from any other
+Bluetooth device on earth."* 7.2 - WEAPONISED BLUETOOTH TRACKING OF POLICE
+
 ## The fix in one paragraph
 
 NULLWEAR is a credit card sized, officer-issued radio device that performs **selective per-packet annihilation** of Axon BLE broadcasts. It listens continuously on the three BLE advertising channels (37, 38 and 39). When it detects a packet whose MAC begins with `00:25:DF`, it immediately emits a precisely-timed colliding pulse on the same channel, in the air, during the packet's CRC trailer. Every BLE receiver in radio range — including the attacker's scanner mesh — fails the CRC check and silently discards the packet. The Axon device's broadcast is destroyed mid-flight before any external scanner can receive a clean copy. To the attacker, an officer wearing NULLWEAR is **invisible**.
