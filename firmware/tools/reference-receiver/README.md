@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
+
+
 # NULLWEAR Reference Receiver
 
 Verification tool. Use this to determine — empirically, on any computer with a Bluetooth radio — whether a NULLWEAR device is correctly annihilating Axon-OUI BLE advertising packets.
