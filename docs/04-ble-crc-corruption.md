@@ -133,4 +133,4 @@ The only meaningful verification is empirical, not analytical:
 
 The acceptance threshold (PAR ≥ 0.99 at 5 m) is set in [`12-acceptance-test-procedure.md`](12-acceptance-test-procedure.md). The field-realistic threshold is set in [`10-field-testing-protocol.md`](10-field-testing-protocol.md). Both must pass before any operational deployment.
 
-Until pilot units are built, the technique remains a high-confidence engineering prediction, not a measured field result. Be honest about that.
+Until pilot units are built, the technique remains a high-confidence engineering prediction, not a measured field result. 
