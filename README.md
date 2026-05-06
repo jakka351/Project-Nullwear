@@ -151,10 +151,23 @@ All three share the same nRF5340 SoC, the same firmware core, and the same OUI-d
 
 ### Range — the protection bubble travels with the officer
 
+
 <p align="center">
-  <img src="docs/img/range-comparison.svg" alt="Detection range vs NULLWEAR protection bubble" width="900"/>
+  <img src="docs/img/range-comparison.svg" alt="Range" width="900"/>
 </p>
 
+### In Vehicle Setup - for 
+
+<p align="center">
+  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/nullwear-v-vehicle.svg" alt="Vehiclee" width="900"/>
+</p>
+
+### In Station Setup - for reference
+
+<p align="center">
+  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/nullwear-s-station.svg" alt="In Station" width="900"/>
+</p>
+  
 ## Status
 
 | Component | Status |
