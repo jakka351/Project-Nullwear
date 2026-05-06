@@ -91,7 +91,7 @@ This is the timing constraint that drove the entire design. BLE transmits MAC ad
 
 Detection of the OUI therefore requires receiving the entire 48-bit AdvA — not just the first 24 bits. This adds 24 µs of waiting compared with a hypothetical "OUI first" encoding, which would have been the more privacy-friendly choice but is not what the spec mandates.
 
-(Note: this is not an Axon design choice. It is the BLE specification's choice. Axon could mitigate by using Resolvable Private Addresses, which would eliminate the manufacturer fingerprint entirely.)
+(Note: this is not an Axon design choice. It is the BLE specification's choice. Axon could mitigate by using Resolvable Private Addresses, <s>which would eliminate the manufacturer fingerprint entirely.</s> -further analysis has found signatures and fingerprintable data in the payload of the advertisement of device broadcasts.)
 
 ---
 
