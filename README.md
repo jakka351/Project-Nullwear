@@ -77,7 +77,11 @@ Project-Nullwear/
 ```
 
 ---
-
+  
+<p align="right"> 
+<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/scan.png" height="12%" width="12%" /></p>
+</p>
+  
 ## The vulnerability in one paragraph
 
 Every Axon Enterprise BLE-emitting device — body-worn cameras, smart holsters, Tasers, in-car video units — broadcasts a Bluetooth Low Energy advertising packet many times per second. Every one of those packets contains a Media Access Control (MAC) address whose first three bytes (the OUI) are `00:25:DF`, the IEEE-registered identifier for Taser International / Axon Enterprise. Anyone within Bluetooth radio range — typically 10–100 m line-of-sight, but up to **400 m** with a directional antenna and amplified front-end — can passively detect, identify and locate any officer wearing Axon equipment, using nothing more sophisticated than a phone, a Raspberry Pi, or a $5 ESP32. A productionised, city-scale weaponisation of this vulnerability has been recovered and documented in the companion disclosure report.
