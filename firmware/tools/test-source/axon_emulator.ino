@@ -41,7 +41,8 @@
 #include <BLEDevice.h>
 #include <BLEAdvertising.h>
 
-// Fixed test MAC: OUI 00:25:DF, suffix DE:AD:BE for unmistakability.
+// Fixed test MAC: OUI 00:25:DF, suffix DE:AD:BE for unmistakability. 
+// Can't not have DEADBEEF somewhere can we? What about CAFEBABE?
 static uint8_t g_mac[6] = { 0x00, 0x25, 0xDF, 0xDE, 0xAD, 0xBE };
 
 void setup() {
