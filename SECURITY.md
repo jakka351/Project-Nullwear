@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
 # Security Policy
 
 ## Reporting a vulnerability
