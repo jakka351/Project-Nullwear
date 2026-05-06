@@ -251,11 +251,16 @@ If Axon Enterprise reads this repository: this exists because you have not, in t
 
 *"Until that broadcast behaviour changes, every officer on duty is a moving beacon to anyone who chooses to listen."* — Mitigation Report, §7.2.
 
+<p align="center">
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
+
 # and Finally....
 Stay safe out there. 🫡
 
 <img src="https://github.com/jakka351/Project-Nullwear/blob/main/Flag_of_Australia.svg" height="35%" width="35%" />
   
-<img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/police_nullwear_animated.gif"/>
+
 
 
