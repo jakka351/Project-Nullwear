@@ -133,6 +133,13 @@ SANITISED_MACS = {
 # extend to 10 chars to absorb any field variant we haven't seen yet.
 AXON_SERIAL_RE = re.compile(rb"X60[A-Z][0-9A-Z]{5,6}")
 
+# Lab-marker sentinel emitted by ../test-source/axon_emulator.ino in its
+# docked-mode FE6B payload (bytes 0-3 = "NWLB"). Any FE6B advertisement
+# beginning with this sentinel is by definition the NULLWEAR test source,
+# NOT a real Axon device. The receiver flags these explicitly so they
+# cannot be confused with field captures or used to poison datasets.
+LAB_MARKER_SENTINEL = b"NWLB"
+
 
 def extract_axon_serial(payload: bytes) -> str | None:
     """Return the first Axon X60-series serial found in `payload`, or None."""
@@ -153,6 +160,7 @@ def classify_advertisement(mac: str, adv: "AdvertisementData",
         uuid_match          bool
         sanitised_mac       bool
         is_target           bool   (any of the above)
+        is_test_source      bool   (NULLWEAR lab-marker sentinel present)
         fe6b_payload_hex    str | None
         axon_serial         str | None
     """
@@ -173,11 +181,21 @@ def classify_advertisement(mac: str, adv: "AdvertisementData",
 
     sanitised_mac = mac_u in SANITISED_MACS
 
+    # Lab-marker check: any FE6B payload beginning with "NWLB" is from
+    # the NULLWEAR test-source emulator. We still count the matching
+    # phases (so the test can verify the firmware is annihilating the
+    # right thing) but flag the source so reports / datasets / acceptance
+    # tests can never confuse emulator traffic with real Axon traffic.
+    is_test_source = bool(
+        fe6b_payload and fe6b_payload.startswith(LAB_MARKER_SENTINEL)
+    )
+
     return {
         "oui_match":        oui_match,
         "uuid_match":       uuid_match,
         "sanitised_mac":    sanitised_mac,
         "is_target":        oui_match or uuid_match or sanitised_mac,
+        "is_test_source":   is_test_source,
         "fe6b_payload_hex": fe6b_payload.hex() if fe6b_payload else None,
         "axon_serial":      extract_axon_serial(fe6b_payload) if fe6b_payload else None,
     }
@@ -200,6 +218,7 @@ class ReceptionLog:
         self.rx_uuid = 0            # Phase 2 hits
         self.rx_sanitised = 0       # Phase 3 hits
         self.rx_uuid_only = 0       # Phase 2 hit AND not Phase 1 (docked-device tell)
+        self.rx_test_source = 0     # NULLWEAR lab-marker sentinel hits (NWLB)
 
         self.per_mac_counts: dict[str, int] = defaultdict(int)
         self.per_mac_first_seen: dict[str, float] = {}
@@ -208,6 +227,7 @@ class ReceptionLog:
         self.per_mac_rssi_max:   dict[str, int] = {}
         self.per_mac_match_kind: dict[str, set[str]] = defaultdict(set)
         self.per_mac_serials:    dict[str, set[str]] = defaultdict(set)
+        self.per_mac_is_test_source: dict[str, bool] = {}
         self.serials_seen: set[str] = set()
         self.events: list[dict] = []
 
@@ -244,6 +264,10 @@ class ReceptionLog:
         if oui:  self.per_mac_match_kind[mac_u].add("OUI")
         if uuid: self.per_mac_match_kind[mac_u].add("UUID")
         if san:  self.per_mac_match_kind[mac_u].add("SANITISED")
+        if v["is_test_source"]:
+            self.per_mac_match_kind[mac_u].add("TEST-SOURCE")
+            self.per_mac_is_test_source[mac_u] = True
+            self.rx_test_source += 1
 
         if v["axon_serial"]:
             self.per_mac_serials[mac_u].add(v["axon_serial"])
@@ -258,6 +282,7 @@ class ReceptionLog:
             "oui_match": oui,
             "uuid_match": uuid,
             "sanitised_mac": san,
+            "is_test_source": v["is_test_source"],
             "fe6b_payload_hex": v["fe6b_payload_hex"],
             "axon_serial": v["axon_serial"],
         })
@@ -281,6 +306,8 @@ class ReceptionLog:
                 "phase2_uuid_hits":         self.rx_uuid,
                 "phase2_uuid_only_hits":    self.rx_uuid_only,
                 "phase3_sanitised_mac_hits": self.rx_sanitised,
+                "test_source_hits":         self.rx_test_source,
+                "test_source_macs":         sorted(self.per_mac_is_test_source.keys()),
             },
             "phases_enabled": {
                 "phase1_oui":          True,
@@ -315,7 +342,7 @@ def _kind_label(kinds: set[str]) -> str:
     """Compact label for the live table."""
     if not kinds:
         return "-"
-    order = ["OUI", "UUID", "SANITISED"]
+    order = ["OUI", "UUID", "SANITISED", "TEST-SOURCE"]
     return "+".join(k for k in order if k in kinds)
 
 
@@ -340,6 +367,13 @@ def print_live_summary(log: ReceptionLog, target_oui: str):
           f"SANITISED={pb['phase3_sanitised_mac_hits']}")
     print(f"Unique target MACs seen: {s['unique_target_macs']}   "
           f"Axon serials recovered: {len(s['axon_serials_recovered'])}")
+    if pb.get("test_source_hits", 0) > 0:
+        # ANSI yellow on red — make it impossible to miss in a live test.
+        macs = ", ".join(pb.get("test_source_macs", [])) or "?"
+        print(f"\033[1;33;41m  *** TEST-SOURCE DETECTED *** "
+              f"NULLWEAR lab marker (NWLB) seen on {macs} — "
+              f"{pb['test_source_hits']} packets — "
+              f"NOT a real Axon device. Do not include in field datasets.\033[0m")
     if s['target_macs']:
         print()
         print(f"{'MAC':<22} {'kind':<14} {'count':>7} "
