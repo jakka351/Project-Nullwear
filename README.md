@@ -79,7 +79,7 @@ Project-Nullwear/
 ---
   
 <p align="right"> 
-<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/scan.png" height="12%" width="12%" /></p>
+<img align="right" src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/scan.png" height="20%" width="20%" /></p>
 </p>
   
 ## The vulnerability in one paragraph
