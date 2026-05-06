@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
 # Contributing to Project NULLWEAR
 
 This project exists to protect the safety of law-enforcement officers from a real, demonstrated radio-frequency surveillance threat. Contributions are welcome from engineers, security researchers, manufacturing partners, regulators, agency staff, and anyone with relevant expertise.
