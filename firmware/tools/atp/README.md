@@ -1,8 +1,3 @@
-
-<p align="center">
-  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
-</p>
-
 # Automated ATP Harness
 
 Reference Python harness implementing the manual procedure in [`docs/12-acceptance-test-procedure.md`](../../../docs/12-acceptance-test-procedure.md).
