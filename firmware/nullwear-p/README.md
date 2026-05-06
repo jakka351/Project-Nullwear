@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/jakka351/Project-Nullwear/blob/main/docs/img/logo.png" alt="Project NULLWEAR" width="800"/>
+</p>
+
 # NULLWEAR/P firmware
 
 Personal-issue device firmware. Two-image build: app core + network core.
