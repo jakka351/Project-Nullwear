@@ -34,7 +34,7 @@ The contents of this repository can be downloaded and sent to a supplier of your
 
 **08/05/2026** I have looked at the project from a different perspective and I feel there are some major issues with its feasibilty and legality - Documented in `ISSUES.MD`    
   
-The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification,and the high liklihood that in practice it's use would be illegal.  
+The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification, and the high chance that in practice it's use would be illegal.  
 
 It seems that because of these two issues - **Project Nullwear is null and void**.
 
