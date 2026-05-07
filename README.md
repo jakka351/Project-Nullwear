@@ -182,10 +182,10 @@ All three share the same nRF5340 SoC, the same firmware core, and the same OUI-d
 
 | Component | Status |
 |---|---|
-| Architecture and engineering specification | Complete (Rev A) |
+| Architecture and engineering specification | Complete (Rev B) |
 | Firmware reference implementation | Complete reference (this repo) |
-| PCB CAD | Reference layout pending pilot CM |
-| Mechanical CAD | Reference dimensions specified; CAD files pending pilot CM |
+| PCB CAD | To be done - assistance required |
+| Mechanical CAD | Reference dimensions specified; To be done - assistance required |
 | Lab testing | Procedure documented; awaiting pilot build |
 | Field testing | Protocol documented; awaiting pilot build |
 | ACMA class-licence determination | Pathway identified; awaiting Ministerial action |
@@ -213,6 +213,7 @@ This section is intentionally explicit. Every claim in this repository falls int
 
 - **The science is real.** Selective per-packet BLE-OUI annihilation is a documented technique on the Nordic radio family. The vulnerability it counters is real and verified to be exploited at production scale.
 - **The implementation is a reference.** The firmware is the author's hand-written reference per first principles. It must be built, flashed, and lab-tested by your contract manufacturer before any operational deployment.
+- **The precision timing required to acheive the desired mid-air corruption of the CRC looks to be feasible against real world data.**  
 - **Field testing is mandatory.** No officer should carry a NULLWEAR device that has not passed the field-testing protocol in `docs/10-field-testing-protocol.md` against a known Axon BLE source. The protocol is written precisely so that you don't have to take the author's word for anything.
 - **Legal authorisation is mandatory.** Do not deploy the device operationally without the regulatory pathway in `docs/15-legal-and-regulatory.md` having been signed off by your jurisdiction's radio regulator and your agency's general counsel.
 
@@ -229,7 +230,7 @@ If you find a defect, an overstated claim, or a gap between what this repository
 
 ## License
 
-Released under the **MIT License** — see [`LICENSE`](LICENSE). The intent is that any law-enforcement or national-security agency in any friendly jurisdiction may take this work, build the devices, and protect their officers, without legal encumbrance.
+Released under the **GNU General Public License** — see [`LICENSE`](LICENSE). The intent is that any law-enforcement or national-security agency in any friendly jurisdiction may take this work, build the devices, and protect their officers, **without legal encumbrance or red tape**.
 
 <p align="right"> 
 <img align="right" src="https://user-images.githubusercontent.com/57064943/163706907-48fcd541-6998-42c8-a673-b33784e09128.png" height="25%" width="25%" /></p>
