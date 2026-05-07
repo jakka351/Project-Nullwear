@@ -27,6 +27,9 @@ Ultimately the responsibility for this colossal fuck-up lies with Axon, and whet
 
 The contents of this repository can be downloaded and sent to a supplier of your choice — **please choose a local manufacturer, not China** — to build these devices and deploy them to officers in the field.
 
+
+**08/05/2026** I have looked at the project from a different perspective and I feel there are some major issues with its feasibilty and legality - Documented in `ISSUES.MD`   
+
 ---
 
 ## What's in here
