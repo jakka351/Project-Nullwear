@@ -23,14 +23,19 @@ This is time and hope, this project is made freely available as open-source info
 
 The project provides source code, technical instructions, design and engineering specifications that police and government can use to protect officer safety while the foreseeable fallout from dealing with their supplier being less than forefront about the security of their devices is worked through.
 
-Ultimately the responsibility for this colossal fuck-up lies with Axon, and whether they accept that or not, **something must be done in the meantime**. This project is that something.
+Ultimately the responsibility for this colossal fuck-up lies with Axon, and whether they accept that or not, **something must be done in the meantime**. 
 
+<s>This project is that something.</s>
+
+<s>
 The contents of this repository can be downloaded and sent to a supplier of your choice — **please choose a local manufacturer, not China** — to build these devices and deploy them to officers in the field.
+</s>
 
 
 **08/05/2026** I have looked at the project from a different perspective and I feel there are some major issues with its feasibilty and legality - Documented in `ISSUES.MD`    
-The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification,   
-and the high liklihood that in practice it's use would be illegal.   
+The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification,and the high liklihood that in practice it's use would be illegal.  
+
+It seems that because of these two issues - **Project Nullwear is null and void**.
 
 ---
 
