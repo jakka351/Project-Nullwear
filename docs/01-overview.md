@@ -16,7 +16,7 @@ Every Axon body camera, smart holster, Taser, and in-car video unit broadcasts a
 - **Programme documentation**: pilot deployment plan, security considerations, legal/regulatory analysis.
 - **A companion strategic Mitigation Report and Engineering Specification PDF** (issued separately under the same confidentiality regime).
 
-All of this is open source under the MIT licence. The intent is that any law-enforcement or national-security agency in any friendly jurisdiction can take this work, build the devices via a domestic contract manufacturer (not Chinese), and protect their officers, without legal encumbrance.
+All of this is open source under the copyleft GPL licence. The intent is that any law-enforcement or national-security agency in any friendly jurisdiction can take this work, build the devices via a domestic contract manufacturer (not Chinese), and protect their officers, without legal encumbrance.
 
 ## What it is not
 
