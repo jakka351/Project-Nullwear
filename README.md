@@ -213,7 +213,7 @@ This section is intentionally explicit. Every claim in this repository falls int
 
 - **The science is real.** Selective per-packet BLE-OUI annihilation is a documented technique on the Nordic radio family. The vulnerability it counters is real and verified to be exploited at production scale.
 - **The implementation is a reference.** The firmware is the author's hand-written reference per first principles. It must be built, flashed, and lab-tested by your contract manufacturer before any operational deployment.
-- **The precision timing required to acheive the desired mid-air corruption of the CRC looks to be feasible against real world data.**  
+- **The precision timing required to achieve the desired mid-air corruption of the CRC looks to be feasible against real world data.**  
 - **Field testing is mandatory.** No officer should carry a NULLWEAR device that has not passed the field-testing protocol in `docs/10-field-testing-protocol.md` against a known Axon BLE source. The protocol is written precisely so that you don't have to take the author's word for anything.
 - **Legal authorisation is mandatory.** Do not deploy the device operationally without the regulatory pathway in `docs/15-legal-and-regulatory.md` having been signed off by your jurisdiction's radio regulator and your agency's general counsel.
 
