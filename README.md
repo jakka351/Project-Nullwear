@@ -40,7 +40,12 @@ custom RF gear with custom protcols that collect and deciper every single bit re
 *The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification, and the high chance that in practice it's use would be illegal.*
   
 It seems that because of these two issues - **Project Nullwear is null and void**.
-
+  
+*Because of the fingerprinting and signatures we have documented other than the MAC address(see `/docs/18-service-data-payload-analysis.md`) the threat surface only continues to grow as time goes on. With the publishing of the body worn
+camera bluetooth trigger signal - that surface has increased dramatically, and will continue to increase as time goes on and the information propagates and develops. Unless they are able to completely remove bluetooth advertising from these
+device - the implications will get more and more severe - effecting from the frontline all the way through to the court room. The inherent nature of bluetooth low energy is that you advertise your presence - it was a fundamental error to 
+use this technology in the context of police and how they operate. As mentioned before, Axon Signal is a colossal fuck up - that is becoming clearly undeniable.*
+  
 ---
 
 ## What's in here
