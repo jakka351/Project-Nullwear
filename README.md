@@ -35,7 +35,7 @@ The contents of this repository can be downloaded and sent to a supplier of your
 **08/05/2026** I have looked at the project from a different perspective and I feel there are some major issues with its feasibilty and legality - Documented in `ISSUES.MD`    
 
 *We can feasibly provide a defense against the devices appearing on a Bluetooth scanner - but this is not what a real bad actor will use to detect these signals, they will most likely be running some form of
-custom RF gear with custom protcols that collect and deciper every single bit received, regardless of whether it is a valid CRC or not.*
+custom RF gear with custom protocols that collect and deciper every single bit received, regardless of whether it is a valid CRC or not.*
     
 *The author acknowledges there are two major flaws with the entire concept - it cannnot defend against radio recievers that do not follow the bluetooth low energy specification, and the high chance that in practice it's use would be illegal.*
   
